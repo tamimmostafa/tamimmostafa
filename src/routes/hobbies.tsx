@@ -1,27 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Mountain, Camera, BookOpen, Music, Coffee, Bike } from "lucide-react";
+import { Wrench, ShieldCheck, Cpu, Flag, Radio, Gauge } from "lucide-react";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
 
 export const Route = createFileRoute("/hobbies")({
   head: () => ({
     meta: [
       { title: "Hobbies — Alex Carter" },
-      { name: "description", content: "Things I do when I'm not at the keyboard." },
+      { name: "description", content: "Wrenching, soldering, and hacking — the things I do for fun." },
       { property: "og:title", content: "Hobbies — Alex Carter" },
-      { property: "og:description", content: "Climbing, photography, music, and other obsessions." },
+      { property: "og:description", content: "Garage builds, CTFs, and homebrew electronics." },
     ],
   }),
   component: Hobbies,
 });
 
 const hobbies = [
-  { i: Mountain, t: "Bouldering", d: "Currently projecting V7s. The best UX research I do happens mid-route." },
-  { i: Camera, t: "Film photography", d: "Shooting Portra 400 on a Pentax K1000. Low-fidelity is a feature." },
-  { i: BookOpen, t: "Reading", d: "Mostly essays and design history. Currently rereading Christopher Alexander." },
-  { i: Music, t: "Synth noodling", d: "An OP-1 Field and a small modular rig that mostly judges me." },
-  { i: Coffee, t: "Coffee", d: "Three pour-overs deep before noon. Ethiopian naturals, please." },
-  { i: Bike, t: "Cycling", d: "Long Sunday rides through the Sintra hills with no destination." },
+  { i: Wrench, t: "Wrenching", d: "Weekends under a hood. Currently mid-build on a turbocharged E30 daily driver." },
+  { i: Flag, t: "CTF Competitions", d: "Captain of a small team. We mostly play pwn and hardware categories — winning sometimes." },
+  { i: Cpu, t: "Homebrew Electronics", d: "Custom PCBs, retro computer mods, and weird MIDI controllers built from junk-bin parts." },
+  { i: ShieldCheck, t: "Bug Bounties", d: "Casual hunting on IoT and automotive aftermarket gear. A few hall-of-fames, a few free t-shirts." },
+  { i: Radio, t: "Ham Radio & SDR", d: "Licensed operator. Lately decoding satellite telemetry with an RTL-SDR and a coat-hanger antenna." },
+  { i: Gauge, t: "Track Days", d: "Open lapping days whenever I can. Going slowly enough to learn, fast enough to scare myself." },
 ];
 
 function Hobbies() {
@@ -30,7 +30,7 @@ function Hobbies() {
       <SectionHeader
         kicker="Hobbies"
         title="Off the clock."
-        sub="The things I'm bad at, the things I love, and the few things that overlap."
+        sub="The things I'm bad at, the things I love, and the few that overlap with work."
       />
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

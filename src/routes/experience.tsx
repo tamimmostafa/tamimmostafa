@@ -15,11 +15,11 @@ export const Route = createFileRoute("/experience")({
 });
 
 const items = [
-  { y: "2024 — now", role: "Independent Design Engineer", co: "Self-employed", desc: "Advising and shipping with seed-stage product teams across fintech, AI, and dev tools." },
-  { y: "2021 — 2024", role: "Principal Designer", co: "Stratus Bank", desc: "Led the design system org. Grew team from 3 to 14. Shipped multi-brand tokens used by 800+ engineers." },
-  { y: "2018 — 2021", role: "Senior Product Designer", co: "Verge Labs (acq. by Stripe)", desc: "Founding designer. Owned every surface from onboarding to enterprise admin." },
-  { y: "2016 — 2018", role: "Frontend Engineer", co: "Lumen Studio", desc: "Built award-winning sites and interactive installations for cultural clients." },
-  { y: "2014 — 2016", role: "Designer & Developer", co: "Freelance", desc: "Worked with 30+ small businesses to build their first real digital presence." },
+  { y: "2024 — now", role: "Independent Security Researcher", co: "Self-employed", desc: "Firmware audits and red-team engagements for IoT and automotive clients across the EU." },
+  { y: "2021 — 2024", role: "Senior Embedded Engineer", co: "Helix Robotics", desc: "Led firmware for a Cortex-M7 motor controller shipped in 40k+ units. Owned the secure boot and OTA stack." },
+  { y: "2019 — 2021", role: "Offensive Security Engineer", co: "Vantage Labs", desc: "Reverse-engineered automotive infotainment and telematics units. Authored 6 published CVEs." },
+  { y: "2018 — 2019", role: "Embedded Software Intern", co: "Bosch Mobility", desc: "AUTOSAR component work on engine control modules. First taste of CAN bus and the joy of MISRA C." },
+  { y: "2017 — now", role: "Garage Mechanic (after-hours)", co: "Self-taught", desc: "Engine rebuilds, suspension work, and electrical diagnostics on classic German and Japanese cars." },
 ];
 
 function Experience() {
