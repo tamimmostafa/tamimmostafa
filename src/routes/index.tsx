@@ -7,10 +7,10 @@ import profileImg from "@/assets/profile.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alex Carter — Designer & Developer" },
-      { name: "description", content: "Crafting interfaces, products, and experiences at the intersection of design and code." },
+      { title: "Alex Carter — Embedded Systems & Cybersecurity Engineer" },
+      { name: "description", content: "Embedded systems engineer, offensive security researcher, and hands-on car mechanic. I build, break, and rebuild — from ECUs to firmware." },
       { property: "og:title", content: "Alex Carter — Portfolio" },
-      { property: "og:description", content: "Designer & developer building thoughtful digital products." },
+      { property: "og:description", content: "Embedded systems, cybersecurity, and automotive engineering." },
     ],
   }),
   component: Index,
@@ -42,16 +42,17 @@ function Index() {
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tighter leading-[0.9]">
-              Designing
+              I build,
               <br />
-              <span className="text-gradient italic font-light">soft systems</span>
+              <span className="text-gradient italic font-light">break & rebuild</span>
               <br />
-              for hard problems.
+              the machines.
             </h1>
 
             <p className="mt-8 max-w-xl text-lg text-muted-foreground leading-relaxed">
-              I'm Alex — a designer & developer working at the seam between human intent and machine
-              execution. I build interfaces that feel inevitable.
+              I'm Alex — embedded systems engineer and offensive security researcher. From soldering
+              microcontrollers to reverse-engineering ECUs in the garage, I live where firmware,
+              silicon, and steel collide.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -116,9 +117,9 @@ function Index() {
 
       <section className="mt-24 grid md:grid-cols-3 gap-6">
         {[
-          { k: "12+", v: "Years building products" },
-          { k: "40+", v: "Shipped projects" },
-          { k: "9", v: "Industry awards" },
+          { k: "8+", v: "Years in embedded & security" },
+          { k: "30+", v: "CVEs & CTF flags" },
+          { k: "12", v: "Engines rebuilt in the garage" },
         ].map((s, i) => (
           <motion.div
             key={s.v}
@@ -149,7 +150,7 @@ function Index() {
           >
             {Array.from({ length: 2 }).map((_, i) => (
               <div key={i} className="flex gap-12 items-center">
-                {["Design Engineering", "★", "Product Design", "★", "Creative Code", "★", "Brand Systems", "★"].map((w, j) => (
+                {["Embedded Systems", "★", "Cybersecurity", "★", "Car Mechanics", "★", "Reverse Engineering", "★"].map((w, j) => (
                   <span key={j} className={j % 2 === 1 ? "text-primary" : "text-foreground/30"}>
                     {w}
                   </span>

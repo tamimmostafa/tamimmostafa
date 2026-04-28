@@ -7,21 +7,21 @@ export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Alex Carter" },
-      { name: "description", content: "Selected projects spanning product design, engineering, and creative experiments." },
+      { name: "description", content: "Selected work across embedded systems, cybersecurity research, and automotive builds." },
       { property: "og:title", content: "Projects — Alex Carter" },
-      { property: "og:description", content: "Selected work in design engineering." },
+      { property: "og:description", content: "Firmware, exploits, and engine builds." },
     ],
   }),
   component: Projects,
 });
 
 const projects = [
-  { year: "2026", name: "Halcyon", role: "Design + Frontend", desc: "An async-first project tool for distributed engineering teams. Reimagined ticketing around momentum, not status.", tag: "Product", color: "from-primary/30 to-transparent" },
-  { year: "2025", name: "Stratus Bank", role: "Design System Lead", desc: "Built the multi-brand design system powering 14 financial products across 6 markets.", tag: "Design System", color: "from-accent/30 to-transparent" },
-  { year: "2025", name: "Field Notes OS", role: "Solo Build", desc: "Notetaking app with a generative knowledge graph. Open source, 8k+ stars.", tag: "OSS", color: "from-primary/30 to-accent/30" },
-  { year: "2024", name: "Lumen Studio", role: "Creative Director", desc: "Brand & site for a generative typography studio. Awwwards SOTD.", tag: "Brand", color: "from-accent/40 to-primary/20" },
-  { year: "2024", name: "Verge AI", role: "Product Design", desc: "Conversational interface for legal contract review. Cut review time 73%.", tag: "AI", color: "from-primary/40 to-transparent" },
-  { year: "2023", name: "Atlas Logistics", role: "Frontend Architecture", desc: "Replaced a 12-year-old dispatch interface with a real-time React app.", tag: "Enterprise", color: "from-accent/20 to-primary/30" },
+  { year: "2026", name: "CANary", role: "Firmware + Hardware", desc: "Open-source CAN bus sniffer and fuzzer built around an RP2040. Catches manufacturer-specific UDS handshakes in real time.", tag: "Automotive", color: "from-primary/30 to-transparent" },
+  { year: "2025", name: "GlitchKit v2", role: "Hardware Security", desc: "Voltage glitching rig for bypassing secure boot on common automotive MCUs. Used in 3 published vulnerability disclosures.", tag: "Hardware Sec", color: "from-accent/30 to-transparent" },
+  { year: "2025", name: "ECU Reflash Toolkit", role: "Solo Build", desc: "Reverse-engineered a stock ECU map and built a Python tool to reflash it safely with custom fuel/ignition tables.", tag: "Tuning", color: "from-primary/30 to-accent/30" },
+  { year: "2024", name: "CVE-2024-XXXX", role: "Security Research", desc: "Stack overflow in a popular IoT camera firmware. Coordinated disclosure, patched across 4 vendors.", tag: "CVE", color: "from-accent/40 to-primary/20" },
+  { year: "2024", name: "PitLane Telemetry", role: "Embedded + Web", desc: "Real-time lap and engine telemetry over LoRa for an amateur racing team. STM32 + custom dashboards.", tag: "Embedded", color: "from-primary/40 to-transparent" },
+  { year: "2023", name: "E30 Restomod", role: "Personal Build", desc: "Full nut-and-bolt restoration of a 1989 BMW E30 — engine rebuild, custom wiring harness, modern infotainment.", tag: "Garage", color: "from-accent/20 to-primary/30" },
 ];
 
 function Projects() {
@@ -30,7 +30,7 @@ function Projects() {
       <SectionHeader
         kicker="Selected work"
         title="Projects."
-        sub="Six projects from the last three years. I lead end-to-end — research, design, build, ship."
+        sub="Six projects from the bench, the lab, and the garage."
       />
 
       <div className="space-y-4">

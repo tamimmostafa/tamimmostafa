@@ -6,9 +6,9 @@ export const Route = createFileRoute("/skills")({
   head: () => ({
     meta: [
       { title: "Skills — Alex Carter" },
-      { name: "description", content: "Tools, technologies, and disciplines I work with." },
+      { name: "description", content: "Embedded systems, cybersecurity, and automotive engineering toolkit." },
       { property: "og:title", content: "Skills — Alex Carter" },
-      { property: "og:description", content: "Design engineering toolkit." },
+      { property: "og:description", content: "Firmware, exploits, and engines." },
     ],
   }),
   component: Skills,
@@ -16,30 +16,30 @@ export const Route = createFileRoute("/skills")({
 
 const groups = [
   {
-    title: "Design",
+    title: "Embedded Systems",
     items: [
-      { n: "Product Design", l: 95 },
-      { n: "Design Systems", l: 92 },
-      { n: "Motion / Prototyping", l: 88 },
-      { n: "Brand Identity", l: 75 },
+      { n: "C / C++ (bare-metal)", l: 95 },
+      { n: "ARM Cortex-M / RISC-V", l: 90 },
+      { n: "RTOS (FreeRTOS, Zephyr)", l: 85 },
+      { n: "PCB design (KiCad)", l: 78 },
     ],
   },
   {
-    title: "Engineering",
+    title: "Cybersecurity",
     items: [
-      { n: "TypeScript / React", l: 96 },
-      { n: "Node / Edge runtimes", l: 85 },
-      { n: "WebGL / Shaders", l: 72 },
-      { n: "Postgres / SQL", l: 80 },
+      { n: "Reverse Engineering (Ghidra/IDA)", l: 92 },
+      { n: "Binary Exploitation", l: 88 },
+      { n: "Hardware / Side-Channel Attacks", l: 80 },
+      { n: "Network & Protocol Fuzzing", l: 85 },
     ],
   },
   {
-    title: "Tooling",
+    title: "Automotive",
     items: [
-      { n: "Figma · Linear · Notion", l: 98 },
-      { n: "Framer · Rive", l: 85 },
-      { n: "Blender · After Effects", l: 65 },
-      { n: "Git · CI / CD", l: 90 },
+      { n: "Engine Rebuilds & Diagnostics", l: 88 },
+      { n: "CAN Bus & OBD-II Tooling", l: 90 },
+      { n: "ECU Tuning & Reflashing", l: 75 },
+      { n: "Suspension & Brakes", l: 82 },
     ],
   },
 ];
@@ -50,7 +50,7 @@ function Skills() {
       <SectionHeader
         kicker="Skills"
         title="What I work with."
-        sub="A snapshot of my current toolkit. I optimize for the right tool, not the trendy one."
+        sub="Soldering iron in one hand, debugger in the other, torque wrench within reach."
       />
 
       <div className="grid md:grid-cols-3 gap-6">
@@ -99,7 +99,7 @@ function Skills() {
           Also fluent in
         </div>
         <div className="flex flex-wrap gap-3">
-          {["GraphQL", "tRPC", "Tailwind", "Three.js", "GSAP", "D3", "Supabase", "Stripe", "i18n", "A11y", "SEO", "Vitest", "Playwright"].map((t) => (
+          {["Python", "Rust", "Assembly (ARM/x86)", "Ghidra", "Burp Suite", "Wireshark", "JTAG/SWD", "Logic Analyzers", "Oscilloscopes", "MIG Welding", "Linux Kernel", "Yocto", "Docker", "Git"].map((t) => (
             <span key={t} className="px-4 py-2 rounded-full border border-border bg-surface/40 text-sm font-mono hover:border-primary/50 hover:text-primary transition-colors">
               {t}
             </span>
