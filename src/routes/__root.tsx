@@ -2,6 +2,7 @@ import { Outlet, createRootRoute, HeadContent, Scripts, Link } from "@tanstack/r
 import appCss from "../styles.css?url";
 import { Nav } from "@/components/Nav";
 import { Cursor } from "@/components/Cursor";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -71,6 +72,7 @@ function RootComponent() {
       <footer className="border-t border-border/50 py-10 px-6 text-center text-sm text-muted-foreground font-mono">
         © 2026 Alex Carter — built with intention.
       </footer>
+      <Toaster />
     </div>
   );
 }
