@@ -5,22 +5,25 @@ import { PageTransition, SectionHeader } from "@/components/PageTransition";
 export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
-      { title: "Experience — Alex Carter" },
-      { name: "description", content: "Career timeline: roles, companies, and milestones." },
-      { property: "og:title", content: "Experience — Alex Carter" },
-      { property: "og:description", content: "A decade of design engineering work." },
+      { title: "Experience — Tamim Mostafa" },
+      { name: "description", content: "Timeline of roles, studies, and milestones." },
+      { property: "og:title", content: "Experience — Tamim Mostafa" },
+      { property: "og:description", content: "The path so far." },
     ],
   }),
   component: Experience,
 });
 
+// ============================================================
+// EDIT ME — fill in your 4 timeline entries below.
+// ============================================================
 const items = [
-  { y: "2024 — now", role: "Independent Security Researcher", co: "Self-employed", desc: "Firmware audits and red-team engagements for IoT and automotive clients across the EU." },
-  { y: "2021 — 2024", role: "Senior Embedded Engineer", co: "Helix Robotics", desc: "Led firmware for a Cortex-M7 motor controller shipped in 40k+ units. Owned the secure boot and OTA stack." },
-  { y: "2019 — 2021", role: "Offensive Security Engineer", co: "Vantage Labs", desc: "Reverse-engineered automotive infotainment and telematics units. Authored 6 published CVEs." },
-  { y: "2018 — 2019", role: "Embedded Software Intern", co: "Bosch Mobility", desc: "AUTOSAR component work on engine control modules. First taste of CAN bus and the joy of MISRA C." },
-  { y: "2017 — now", role: "Garage Mechanic (after-hours)", co: "Self-taught", desc: "Engine rebuilds, suspension work, and electrical diagnostics on classic German and Japanese cars." },
+  { y: "20XX — now", role: "Your Role", co: "Organization", desc: "Short description of what you do/did here. Replace this text with your own." },
+  { y: "20XX — 20XX", role: "Your Role", co: "Organization", desc: "Short description of what you do/did here. Replace this text with your own." },
+  { y: "20XX — 20XX", role: "Your Role", co: "Organization", desc: "Short description of what you do/did here. Replace this text with your own." },
+  { y: "20XX — 20XX", role: "Your Role", co: "Organization", desc: "Short description of what you do/did here. Replace this text with your own." },
 ];
+// ============================================================
 
 function Experience() {
   return (
@@ -28,7 +31,7 @@ function Experience() {
       <SectionHeader
         kicker="Experience"
         title="The path so far."
-        sub="A decade of design engineering — across studios, startups, and independent practice."
+        sub="Four slots — fill them with your real timeline."
       />
 
       <div className="relative">
@@ -37,7 +40,7 @@ function Experience() {
         <div className="space-y-12">
           {items.map((it, i) => (
             <motion.div
-              key={it.co}
+              key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}

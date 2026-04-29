@@ -1,27 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Wrench, ShieldCheck, Cpu, Flag, Radio, Gauge } from "lucide-react";
+import { FlaskConical, Bike, Gauge, Dumbbell } from "lucide-react";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
 
 export const Route = createFileRoute("/hobbies")({
   head: () => ({
     meta: [
-      { title: "Hobbies — Alex Carter" },
-      { name: "description", content: "Wrenching, soldering, and hacking — the things I do for fun." },
-      { property: "og:title", content: "Hobbies — Alex Carter" },
-      { property: "og:description", content: "Garage builds, CTFs, and homebrew electronics." },
+      { title: "Hobbies — Tamim Mostafa" },
+      { name: "description", content: "Chemistry, bikes, car tuning, and the gym — what I do off the clock." },
+      { property: "og:title", content: "Hobbies — Tamim Mostafa" },
+      { property: "og:description", content: "Off-the-clock interests." },
     ],
   }),
   component: Hobbies,
 });
 
 const hobbies = [
-  { i: Wrench, t: "Wrenching", d: "Weekends under a hood. Currently mid-build on a turbocharged E30 daily driver." },
-  { i: Flag, t: "CTF Competitions", d: "Captain of a small team. We mostly play pwn and hardware categories — winning sometimes." },
-  { i: Cpu, t: "Homebrew Electronics", d: "Custom PCBs, retro computer mods, and weird MIDI controllers built from junk-bin parts." },
-  { i: ShieldCheck, t: "Bug Bounties", d: "Casual hunting on IoT and automotive aftermarket gear. A few hall-of-fames, a few free t-shirts." },
-  { i: Radio, t: "Ham Radio & SDR", d: "Licensed operator. Lately decoding satellite telemetry with an RTL-SDR and a coat-hanger antenna." },
-  { i: Gauge, t: "Track Days", d: "Open lapping days whenever I can. Going slowly enough to learn, fast enough to scare myself." },
+  {
+    i: FlaskConical,
+    t: "Chemistry & Pharmaceutical Knowledge",
+    d: "I read and tinker with chemistry and pharmaceutical concepts — understanding compounds, reactions, and how they affect the body.",
+  },
+  {
+    i: Bike,
+    t: "Bike Enthusiast",
+    d: "Two wheels, real feedback. I love everything about bikes — the mechanics, the riding, and the freedom.",
+  },
+  {
+    i: Gauge,
+    t: "Car Tuning Expert",
+    d: "Mapping, dyno time, and chasing the right balance of power and reliability. Cars are my favourite kind of system.",
+  },
+  {
+    i: Dumbbell,
+    t: "Gym & Fitness",
+    d: "Discipline outside the keyboard. Heavy lifts, consistent routine, and the mental reset that comes with it.",
+  },
 ];
 
 function Hobbies() {
@@ -30,10 +44,10 @@ function Hobbies() {
       <SectionHeader
         kicker="Hobbies"
         title="Off the clock."
-        sub="The things I'm bad at, the things I love, and the few that overlap with work."
+        sub="Four things I genuinely love spending time on."
       />
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 gap-6">
         {hobbies.map((h, i) => (
           <motion.div
             key={h.t}

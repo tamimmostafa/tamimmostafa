@@ -1,16 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Sparkles, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { PageTransition } from "@/components/PageTransition";
 import profileImg from "@/assets/profile.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alex Carter — Embedded Systems & Cybersecurity Engineer" },
-      { name: "description", content: "Embedded systems engineer, offensive security researcher, and hands-on car mechanic. I build, break, and rebuild — from ECUs to firmware." },
-      { property: "og:title", content: "Alex Carter — Portfolio" },
-      { property: "og:description", content: "Embedded systems, cybersecurity, and automotive engineering." },
+      { title: "Tamim Mostafa — Cybersecurity & Embedded Systems" },
+      { name: "description", content: "Tamim Mostafa — Cybersecurity & embedded systems student from Cairo. I explore systems, both digital and mechanical." },
+      { property: "og:title", content: "Tamim Mostafa — Portfolio" },
+      { property: "og:description", content: "Cybersecurity, embedded systems, and car tuning." },
     ],
   }),
   component: Index,
@@ -38,21 +38,22 @@ function Index() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
-              <span className="text-muted-foreground">Available for new projects — Q3 2026</span>
+              <span className="text-muted-foreground">Cairo, EG — always learning</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tighter leading-[0.9]">
-              I build,
+              Tamim
               <br />
-              <span className="text-gradient italic font-light">break & rebuild</span>
-              <br />
-              the machines.
+              <span className="text-gradient italic font-light">Mostafa</span>
             </h1>
 
             <p className="mt-8 max-w-xl text-lg text-muted-foreground leading-relaxed">
-              I'm Alex — embedded systems engineer and offensive security researcher. From soldering
-              microcontrollers to reverse-engineering ECUs in the garage, I live where firmware,
-              silicon, and steel collide.
+              I explore systems — digital and mechanical. Cybersecurity & embedded systems
+              student, driven by a passion for cars and performance tuning.
+            </p>
+
+            <p className="mt-6 max-w-xl text-base italic text-foreground/70 border-l-2 border-primary/60 pl-4">
+              "You don't learn by getting it right — you learn by getting it wrong."
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -79,47 +80,43 @@ function Index() {
             className="lg:col-span-5 relative mx-auto lg:mx-0 w-full max-w-sm"
           >
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-primary/30 glow-primary">
-              {/* Neon frame */}
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-primary via-transparent to-accent opacity-60 blur-md pointer-events-none" />
               <div className="relative h-full w-full rounded-3xl overflow-hidden">
                 <img
                   src={profileImg}
-                  alt="Portrait of Alex Carter, designer and developer"
+                  alt="Portrait of Tamim Mostafa"
                   width={768}
                   height={896}
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                {/* Scanline overlay */}
                 <div className="absolute inset-0 pointer-events-none opacity-20" style={{
                   backgroundImage: "repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 3px)",
                 }} />
               </div>
 
-              {/* Floating chip */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute bottom-4 left-4 right-4 flex items-center gap-2 px-3 py-2 rounded-full border border-border bg-background/70 backdrop-blur-md text-xs font-mono"
               >
                 <MapPin size={12} className="text-primary" />
-                <span className="text-muted-foreground">Berlin → Remote</span>
-                <span className="ml-auto text-primary">v3.0</span>
+                <span className="text-muted-foreground">Cairo, EG</span>
+                <span className="ml-auto text-primary">v1.0</span>
               </motion.div>
             </div>
 
-            {/* Decorative corner labels */}
             <div className="absolute -top-3 -left-3 text-[10px] font-mono text-primary/70">001 / PORTRAIT</div>
-            <div className="absolute -bottom-3 -right-3 text-[10px] font-mono text-accent/70">// 2026</div>
+            <div className="absolute -bottom-3 -right-3 text-[10px] font-mono text-accent/70">// TM</div>
           </motion.div>
         </div>
       </section>
 
       <section className="mt-24 grid md:grid-cols-3 gap-6">
         {[
-          { k: "8+", v: "Years in embedded & security" },
-          { k: "30+", v: "CVEs & CTF flags" },
-          { k: "12", v: "Engines rebuilt in the garage" },
+          { k: "CYBER", v: "Offensive security & tooling" },
+          { k: "EMBED", v: "Low-level systems & protocols" },
+          { k: "AUTO", v: "Tuning, ECU mapping, builds" },
         ].map((s, i) => (
           <motion.div
             key={s.v}
@@ -130,7 +127,7 @@ function Index() {
             whileHover={{ y: -4 }}
             className="p-8 rounded-2xl border border-border bg-surface/40 backdrop-blur hover:border-primary/40 hover:glow-sm transition-all"
           >
-            <div className="text-5xl font-display font-bold text-gradient-primary">{s.k}</div>
+            <div className="text-4xl font-display font-bold text-gradient-primary">{s.k}</div>
             <div className="mt-3 text-sm font-mono text-muted-foreground uppercase tracking-wider">{s.v}</div>
           </motion.div>
         ))}
@@ -150,7 +147,7 @@ function Index() {
           >
             {Array.from({ length: 2 }).map((_, i) => (
               <div key={i} className="flex gap-12 items-center">
-                {["Embedded Systems", "★", "Cybersecurity", "★", "Car Mechanics", "★", "Reverse Engineering", "★"].map((w, j) => (
+                {["Cybersecurity", "★", "Embedded", "★", "Car Tuning", "★", "Linux", "★"].map((w, j) => (
                   <span key={j} className={j % 2 === 1 ? "text-primary" : "text-foreground/30"}>
                     {w}
                   </span>

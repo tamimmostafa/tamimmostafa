@@ -5,10 +5,10 @@ import { PageTransition, SectionHeader } from "@/components/PageTransition";
 export const Route = createFileRoute("/skills")({
   head: () => ({
     meta: [
-      { title: "Skills — Alex Carter" },
-      { name: "description", content: "Embedded systems, cybersecurity, and automotive engineering toolkit." },
-      { property: "og:title", content: "Skills — Alex Carter" },
-      { property: "og:description", content: "Firmware, exploits, and engines." },
+      { title: "Skills — Tamim Mostafa" },
+      { name: "description", content: "Languages, low-level systems, networks, hardware, and the security toolkit I work with daily." },
+      { property: "og:title", content: "Skills — Tamim Mostafa" },
+      { property: "og:description", content: "Code, protocols, and the security toolkit." },
     ],
   }),
   component: Skills,
@@ -16,30 +16,31 @@ export const Route = createFileRoute("/skills")({
 
 const groups = [
   {
-    title: "Embedded Systems",
+    title: "Languages & Low-Level",
     items: [
-      { n: "C / C++ (bare-metal)", l: 95 },
-      { n: "ARM Cortex-M / RISC-V", l: 90 },
-      { n: "RTOS (FreeRTOS, Zephyr)", l: 85 },
-      { n: "PCB design (KiCad)", l: 78 },
+      { n: "Python", l: 92 },
+      { n: "JavaScript", l: 80 },
+      { n: "PHP", l: 70 },
+      { n: "Binary & Hex", l: 85 },
     ],
   },
   {
-    title: "Cybersecurity",
+    title: "Networks & Hardware",
     items: [
-      { n: "Reverse Engineering (Ghidra/IDA)", l: 92 },
-      { n: "Binary Exploitation", l: 88 },
-      { n: "Hardware / Side-Channel Attacks", l: 80 },
-      { n: "Network & Protocol Fuzzing", l: 85 },
+      { n: "Networks & Protocols", l: 85 },
+      { n: "CAN bus & OBD", l: 80 },
+      { n: "ECU Tuning & Mapping", l: 78 },
     ],
   },
   {
-    title: "Automotive",
+    title: "Security Toolkit",
     items: [
-      { n: "Engine Rebuilds & Diagnostics", l: 88 },
-      { n: "CAN Bus & OBD-II Tooling", l: 90 },
-      { n: "ECU Tuning & Reflashing", l: 75 },
-      { n: "Suspension & Brakes", l: 82 },
+      { n: "Linux (expert)", l: 95 },
+      { n: "Burp Suite", l: 88 },
+      { n: "Wireshark", l: 85 },
+      { n: "Nmap", l: 88 },
+      { n: "Hydra", l: 80 },
+      { n: "Kali Linux tools", l: 90 },
     ],
   },
 ];
@@ -50,7 +51,7 @@ function Skills() {
       <SectionHeader
         kicker="Skills"
         title="What I work with."
-        sub="Soldering iron in one hand, debugger in the other, torque wrench within reach."
+        sub="Keyboard in front of me, soldering iron close, OBD-II cable in the bag."
       />
 
       <div className="grid md:grid-cols-3 gap-6">
@@ -96,11 +97,11 @@ function Skills() {
         className="mt-20"
       >
         <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6">
-          Also fluent in
+          Fluent in
         </div>
         <div className="flex flex-wrap gap-3">
-          {["Python", "Rust", "Assembly (ARM/x86)", "Ghidra", "Burp Suite", "Wireshark", "JTAG/SWD", "Logic Analyzers", "Oscilloscopes", "MIG Welding", "Linux Kernel", "Yocto", "Docker", "Git"].map((t) => (
-            <span key={t} className="px-4 py-2 rounded-full border border-border bg-surface/40 text-sm font-mono hover:border-primary/50 hover:text-primary transition-colors">
+          {["Python", "Burp Suite", "Wireshark", "Nmap", "Hydra", "Kali Linux", "Linux"].map((t) => (
+            <span key={t} className="px-4 py-2 rounded-full border border-primary/40 bg-primary/10 text-sm font-mono text-primary">
               {t}
             </span>
           ))}

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Mail, Github, Twitter, Linkedin, ArrowUpRight, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Github, Twitter, Linkedin, Instagram, ArrowUpRight, Send, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
@@ -10,32 +10,40 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Alex Carter" },
-      { name: "description", content: "Get in touch about projects, collaborations, or coffee." },
-      { property: "og:title", content: "Contact — Alex Carter" },
-      { property: "og:description", content: "Let's talk — projects, collaborations, or coffee." },
+      { title: "Contact — Tamim Mostafa" },
+      { name: "description", content: "Reach out about projects, collaborations, or just to talk shop." },
+      { property: "og:title", content: "Contact — Tamim Mostafa" },
+      { property: "og:description", content: "Let's talk." },
     ],
   }),
   component: Contact,
 });
 
-const socials = [
-  { i: Github, t: "GitHub", h: "@alexcarter" },
-  { i: Twitter, t: "Twitter / X", h: "@alex_dot_dev" },
-  { i: Linkedin, t: "LinkedIn", h: "in/alexcarter" },
-];
+// ============================================================
+// EDIT ME — your contact email & social links.
+// Leave a value as "" to hide that social card.
+// ============================================================
+const CONTACT_EMAIL = "support.tamim@gmail.com";
 
-const budgetOptions = ["< $5k", "$5k–$15k", "$15k–$50k", "$50k+"];
+const SOCIALS: { i: typeof Github; t: string; h: string; url: string }[] = [
+  { i: Github,    t: "GitHub",        h: "@tamim",         url: "" },
+  { i: Linkedin,  t: "LinkedIn",      h: "in/tamim",       url: "" },
+  { i: Twitter,   t: "Twitter / X",   h: "@tamim",         url: "" },
+  { i: Instagram, t: "Instagram",     h: "@tamim",         url: "" },
+];
+// ============================================================
+
+const subjectOptions = ["Question", "Project", "Collaboration", "Other"];
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Invalid email").max(255),
-  budget: z.string().max(50).optional(),
+  subject: z.string().max(50).optional(),
   message: z.string().trim().min(10, "Message must be at least 10 characters").max(2000),
 });
 
 function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", budget: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -56,7 +64,7 @@ function Contact() {
     const { error } = await supabase.from("contact_messages").insert({
       name: result.data.name,
       email: result.data.email,
-      budget: result.data.budget || null,
+      subject: result.data.subject || null,
       message: result.data.message,
     });
     setSubmitting(false);
@@ -65,19 +73,20 @@ function Contact() {
       return;
     }
     setSubmitted(true);
-    toast.success("Message sent — I'll reply within 2 days.");
+    toast.success("Message sent — I'll get back to you.");
   };
+
+  const visibleSocials = SOCIALS.filter((s) => s.url.trim() !== "");
 
   return (
     <PageTransition>
       <SectionHeader
         kicker="Contact"
-        title="Let's build something."
-        sub="I'm currently taking on a small number of projects starting Q3 2026. Tell me what you're working on."
+        title="Let's talk."
+        sub="Drop a line about a project, a question, or just to say hi."
       />
 
       <div className="grid lg:grid-cols-12 gap-8">
-        {/* Enhanced Contact Form */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -98,7 +107,7 @@ function Contact() {
               </div>
               <h3 className="text-3xl font-display font-bold text-gradient">Message sent.</h3>
               <p className="mt-3 text-muted-foreground max-w-sm">
-                Thanks {form.name.split(" ")[0]}. I'll get back to you within 2 working days.
+                Thanks {form.name.split(" ")[0]}. I'll get back to you soon.
               </p>
             </motion.div>
           ) : (
@@ -110,7 +119,7 @@ function Contact() {
                   value={form.name}
                   onChange={(v) => setForm({ ...form, name: v })}
                   error={errors.name}
-                  placeholder="Jane Doe"
+                  placeholder="Your name"
                 />
                 <Field
                   label="Email"
@@ -119,22 +128,22 @@ function Contact() {
                   value={form.email}
                   onChange={(v) => setForm({ ...form, email: v })}
                   error={errors.email}
-                  placeholder="jane@studio.com"
+                  placeholder="you@example.com"
                 />
               </div>
 
               <div>
                 <label className="block font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3">
-                  Budget
+                  Subject
                 </label>
                 <div className="flex flex-wrap gap-2">
-                  {budgetOptions.map((b) => (
+                  {subjectOptions.map((b) => (
                     <button
                       type="button"
                       key={b}
-                      onClick={() => setForm({ ...form, budget: b })}
+                      onClick={() => setForm({ ...form, subject: b })}
                       className={`px-4 py-2 rounded-full border text-xs font-mono transition-all ${
-                        form.budget === b
+                        form.subject === b
                           ? "border-primary bg-primary/10 text-primary glow-sm"
                           : "border-border bg-surface/40 text-muted-foreground hover:border-primary/40 hover:text-foreground"
                       }`}
@@ -154,7 +163,7 @@ function Contact() {
                   rows={5}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="Tell me about your project, timeline, and goals…"
+                  placeholder="Tell me what's on your mind…"
                   className="w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
                   maxLength={2000}
                 />
@@ -175,10 +184,9 @@ function Contact() {
           )}
         </motion.div>
 
-        {/* Side: email + socials */}
         <div className="lg:col-span-5 space-y-4">
           <motion.a
-            href="mailto:hello@alex.dev"
+            href={`mailto:${CONTACT_EMAIL}`}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             whileHover={{ y: -4 }}
@@ -190,17 +198,19 @@ function Contact() {
               <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">
                 Or email directly
               </div>
-              <div className="text-2xl font-display font-bold text-gradient flex items-center gap-2 flex-wrap">
-                hello@alex.dev
-                <ArrowUpRight className="group-hover:rotate-45 transition-transform" size={20} />
+              <div className="text-xl md:text-2xl font-display font-bold text-gradient flex items-center gap-2 flex-wrap break-all">
+                {CONTACT_EMAIL}
+                <ArrowUpRight className="group-hover:rotate-45 transition-transform shrink-0" size={20} />
               </div>
             </div>
           </motion.a>
 
-          {socials.map((s, i) => (
+          {visibleSocials.map((s, i) => (
             <motion.a
               key={s.t}
-              href="#"
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 + i * 0.08 }}

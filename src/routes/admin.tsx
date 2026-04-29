@@ -17,7 +17,7 @@ import {
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Admin Dashboard — Alex Carter" },
+      { title: "Admin — Tamim" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -89,7 +89,7 @@ function AdminPage() {
   return (
     <PageTransition>
       <SectionHeader
-        kicker="root // admin console"
+        kicker="root // tamim"
         title="Command Center"
         sub="Live view of users, roles, and inbound messages from the contact form."
       />

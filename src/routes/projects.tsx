@@ -6,23 +6,58 @@ import { PageTransition, SectionHeader } from "@/components/PageTransition";
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Alex Carter" },
-      { name: "description", content: "Selected work across embedded systems, cybersecurity research, and automotive builds." },
-      { property: "og:title", content: "Projects — Alex Carter" },
-      { property: "og:description", content: "Firmware, exploits, and engine builds." },
+      { title: "Projects — Tamim Mostafa" },
+      { name: "description", content: "Selected projects across cybersecurity, embedded systems, and automotive tuning." },
+      { property: "og:title", content: "Projects — Tamim Mostafa" },
+      { property: "og:description", content: "Selected work." },
     ],
   }),
   component: Projects,
 });
 
+// ============================================================
+// EDIT ME — fill in your 4 projects below.
+// Just change the strings; layout stays the same.
+// ============================================================
 const projects = [
-  { year: "2026", name: "CANary", role: "Firmware + Hardware", desc: "Open-source CAN bus sniffer and fuzzer built around an RP2040. Catches manufacturer-specific UDS handshakes in real time.", tag: "Automotive", color: "from-primary/30 to-transparent" },
-  { year: "2025", name: "GlitchKit v2", role: "Hardware Security", desc: "Voltage glitching rig for bypassing secure boot on common automotive MCUs. Used in 3 published vulnerability disclosures.", tag: "Hardware Sec", color: "from-accent/30 to-transparent" },
-  { year: "2025", name: "ECU Reflash Toolkit", role: "Solo Build", desc: "Reverse-engineered a stock ECU map and built a Python tool to reflash it safely with custom fuel/ignition tables.", tag: "Tuning", color: "from-primary/30 to-accent/30" },
-  { year: "2024", name: "CVE-2024-XXXX", role: "Security Research", desc: "Stack overflow in a popular IoT camera firmware. Coordinated disclosure, patched across 4 vendors.", tag: "CVE", color: "from-accent/40 to-primary/20" },
-  { year: "2024", name: "PitLane Telemetry", role: "Embedded + Web", desc: "Real-time lap and engine telemetry over LoRa for an amateur racing team. STM32 + custom dashboards.", tag: "Embedded", color: "from-primary/40 to-transparent" },
-  { year: "2023", name: "E30 Restomod", role: "Personal Build", desc: "Full nut-and-bolt restoration of a 1989 BMW E30 — engine rebuild, custom wiring harness, modern infotainment.", tag: "Garage", color: "from-accent/20 to-primary/30" },
+  {
+    year: "20XX",
+    name: "Project One",
+    role: "Role / Category",
+    desc: "Short description of what this project is and what you did. Replace this text with your own.",
+    tag: "Tag",
+    url: "#",
+    color: "from-primary/30 to-transparent",
+  },
+  {
+    year: "20XX",
+    name: "Project Two",
+    role: "Role / Category",
+    desc: "Short description of what this project is and what you did. Replace this text with your own.",
+    tag: "Tag",
+    url: "#",
+    color: "from-accent/30 to-transparent",
+  },
+  {
+    year: "20XX",
+    name: "Project Three",
+    role: "Role / Category",
+    desc: "Short description of what this project is and what you did. Replace this text with your own.",
+    tag: "Tag",
+    url: "#",
+    color: "from-primary/30 to-accent/30",
+  },
+  {
+    year: "20XX",
+    name: "Project Four",
+    role: "Role / Category",
+    desc: "Short description of what this project is and what you did. Replace this text with your own.",
+    tag: "Tag",
+    url: "#",
+    color: "from-accent/40 to-primary/20",
+  },
 ];
+// ============================================================
 
 function Projects() {
   return (
@@ -30,14 +65,14 @@ function Projects() {
       <SectionHeader
         kicker="Selected work"
         title="Projects."
-        sub="Six projects from the bench, the lab, and the garage."
+        sub="Four slots — fill them with your own."
       />
 
       <div className="space-y-4">
         {projects.map((p, i) => (
           <motion.a
-            key={p.name}
-            href="#"
+            key={p.name + i}
+            href={p.url}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
