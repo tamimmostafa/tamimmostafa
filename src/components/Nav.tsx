@@ -1,7 +1,8 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn, LogOut, ShieldCheck } from "lucide-react";
+import { useAuth } from "@/components/AuthProvider";
 
 const links = [
   { to: "/", label: "Home" },
@@ -16,6 +17,13 @@ const links = [
 export function Nav() {
   const { location } = useRouterState();
   const [open, setOpen] = useState(false);
+  const { user, role, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate({ to: "/" });
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/50">
@@ -47,6 +55,34 @@ export function Nav() {
           })}
         </nav>
 
+        <div className="hidden md:flex items-center gap-2">
+          {user ? (
+            <>
+              <Link
+                to={role === "admin" ? "/admin" : "/secret"}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest border border-primary/30 bg-primary/10 text-primary hover:glow-sm transition-shadow"
+              >
+                <ShieldCheck size={12} />
+                {role ?? "member"}
+              </Link>
+              <button
+                onClick={handleSignOut}
+                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="sign out"
+              >
+                <LogOut size={16} />
+              </button>
+            </>
+          ) : (
+            <Link
+              to="/login"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-primary text-primary-foreground hover:glow-sm transition-shadow"
+            >
+              <LogIn size={12} /> Login
+            </Link>
+          )}
+        </div>
+
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden p-2 text-foreground"
@@ -74,6 +110,31 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
+            {user ? (
+              <>
+                <Link
+                  to={role === "admin" ? "/admin" : "/secret"}
+                  onClick={() => setOpen(false)}
+                  className="px-4 py-3 rounded-lg text-sm font-medium text-primary hover:bg-secondary"
+                >
+                  {role === "admin" ? "Admin Console" : "Secret Page"}
+                </Link>
+                <button
+                  onClick={() => { setOpen(false); handleSignOut(); }}
+                  className="text-left px-4 py-3 rounded-lg text-sm font-medium hover:bg-secondary"
+                >
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/login"
+                onClick={() => setOpen(false)}
+                className="px-4 py-3 rounded-lg text-sm font-medium text-primary hover:bg-secondary"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </motion.nav>
       )}
