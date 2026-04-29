@@ -127,7 +127,15 @@ export function Nav() {
                   Sign out
                 </button>
               </>
-            ) : null}
+            ) : (
+              <Link
+                to="/login"
+                onClick={() => setOpen(false)}
+                className="px-4 py-3 rounded-lg text-sm font-medium text-primary hover:bg-secondary flex items-center gap-2"
+              >
+                <LogIn size={14} /> Login
+              </Link>
+            )}
           </div>
         </motion.nav>
       )}
