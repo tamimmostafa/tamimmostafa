@@ -19,7 +19,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ApiSeedUsersRouteImport } from './routes/api/seed-users'
+import { Route as ApiPublicSeedUsersRouteImport } from './routes/api/public/seed-users'
 
 const SkillsRoute = SkillsRouteImport.update({
   id: '/skills',
@@ -71,9 +71,9 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiSeedUsersRoute = ApiSeedUsersRouteImport.update({
-  id: '/api/seed-users',
-  path: '/api/seed-users',
+const ApiPublicSeedUsersRoute = ApiPublicSeedUsersRouteImport.update({
+  id: '/api/public/seed-users',
+  path: '/api/public/seed-users',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -88,7 +88,7 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRoute
   '/secret': typeof SecretRoute
   '/skills': typeof SkillsRoute
-  '/api/seed-users': typeof ApiSeedUsersRoute
+  '/api/public/seed-users': typeof ApiPublicSeedUsersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -101,7 +101,7 @@ export interface FileRoutesByTo {
   '/projects': typeof ProjectsRoute
   '/secret': typeof SecretRoute
   '/skills': typeof SkillsRoute
-  '/api/seed-users': typeof ApiSeedUsersRoute
+  '/api/public/seed-users': typeof ApiPublicSeedUsersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -115,7 +115,7 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRoute
   '/secret': typeof SecretRoute
   '/skills': typeof SkillsRoute
-  '/api/seed-users': typeof ApiSeedUsersRoute
+  '/api/public/seed-users': typeof ApiPublicSeedUsersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -130,7 +130,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/secret'
     | '/skills'
-    | '/api/seed-users'
+    | '/api/public/seed-users'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -143,7 +143,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/secret'
     | '/skills'
-    | '/api/seed-users'
+    | '/api/public/seed-users'
   id:
     | '__root__'
     | '/'
@@ -156,7 +156,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/secret'
     | '/skills'
-    | '/api/seed-users'
+    | '/api/public/seed-users'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -170,7 +170,7 @@ export interface RootRouteChildren {
   ProjectsRoute: typeof ProjectsRoute
   SecretRoute: typeof SecretRoute
   SkillsRoute: typeof SkillsRoute
-  ApiSeedUsersRoute: typeof ApiSeedUsersRoute
+  ApiPublicSeedUsersRoute: typeof ApiPublicSeedUsersRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -245,11 +245,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/seed-users': {
-      id: '/api/seed-users'
-      path: '/api/seed-users'
-      fullPath: '/api/seed-users'
-      preLoaderRoute: typeof ApiSeedUsersRouteImport
+    '/api/public/seed-users': {
+      id: '/api/public/seed-users'
+      path: '/api/public/seed-users'
+      fullPath: '/api/public/seed-users'
+      preLoaderRoute: typeof ApiPublicSeedUsersRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -266,8 +266,17 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsRoute: ProjectsRoute,
   SecretRoute: SecretRoute,
   SkillsRoute: SkillsRoute,
-  ApiSeedUsersRoute: ApiSeedUsersRoute,
+  ApiPublicSeedUsersRoute: ApiPublicSeedUsersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
