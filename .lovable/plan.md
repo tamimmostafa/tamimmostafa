@@ -1,66 +1,48 @@
-## Personalize site to Tamim Mostafa
+## Fill template gaps with your real content
 
-### 1. Identity & copy (everywhere)
-- Replace every "Alex Carter" reference with **Tamim Mostafa**.
-- Tagline: *"You don't learn by getting it right—you learn by getting it wrong."*
-- Location: **Cairo, EG**
-- Bio: *"I explore systems—digital and mechanical. Cybersecurity & embedded systems student, driven by a passion for cars and performance tuning."*
-- Contact email: **support.tamim@gmail.com** (extra socials left as easy-to-edit constants at top of `contact.tsx` for you to fill in manually).
-- Update root `__root.tsx` `<title>`, meta description, and footer.
-- Update each page's SEO `head()` (title + description) to match Tamim.
+### Projects (`src/routes/projects.tsx`)
+Reduce grid from 4 cards to **3 real projects**:
 
-### 2. Home (`index.tsx`)
-- Hero name → Tamim Mostafa. Role → "Cybersecurity & Embedded Systems Student".
-- Replace stats with neutral / relevant ones (e.g. Projects, CTFs, Builds, Years tinkering) — kept minimal.
-- Tagline quote shown prominently.
+1. **Alfa Romeo Brera — Sleeper Street Build**
+   - Year: `coming soon`
+   - Role/Category: `Car Tuning`
+   - Tag: `1750 TBI · Stage 2+`
+   - Desc: "Personal sleeper build on the 1750 TBI engine, tuned to Stage 2+ targeting 320–360 hp. Custom ECU map, upgraded intake/exhaust path, reinforced clutch — daily-driveable on the outside, properly mean once the throttle opens."
+   - URL: `#`
 
-### 3. About (`about.tsx`)
-- Rewrite bio block using the provided bio, expanded slightly to fill the layout (still in Tamim's voice — student, cars, performance, systems).
-- Location card: Cairo, EG.
+2. **ESP32 Multi-Band Network Analyzer**
+   - Year: `2025`
+   - Role/Category: `Embedded · Security`
+   - Tag: `ESP32 · Wi-Fi/BLE`
+   - Desc: "All-in-one ESP32 tool combining multi-band scanning, packet capture, and exploit modules. Built to learn radio + protocol attack surface hands-on, packaged as a single portable device."
+   - URL: `#`
 
-### 4. Skills (`skills.tsx`) — wipe existing, replace with exactly:
-- **Languages & Low-Level**: Python, JavaScript, PHP, Binary & Hex
-- **Networks & Hardware**: Networks & Protocols, CAN bus & OBD, ECU Tuning & Mapping
-- **Security Toolkit**: Burp Suite, Wireshark, Nmap, Hydra, Kali Linux tools, Linux (expert)
-- "Fluent in" badge highlighting Python + the security tools.
-- Remove all other skill entries (C/C++, Ghidra, JTAG, MIG welding, etc.).
+3. **Fiat Bravo '09 — 1.4 T-Jet Build (280–300 hp)**
+   - Year: `2018 — now`
+   - Role/Category: `Car Tuning · Family Build`
+   - Tag: `1.4 T-Jet · 280–300 hp`
+   - Desc: "Started by my father, continued by me. A 1.4 T-Jet pushed to 280–300 hp through staged tuning, hardware upgrades, and lots of road miles. The platform that taught me ECU mapping and how engines actually behave under load."
+   - URL: `#`
 
-### 5. Projects (`projects.tsx`)
-- Remove all existing project cards.
-- Render exactly **4 blank/template cards** with placeholder title, description, tech tags, and link — clearly marked `// EDIT ME` so you can fill them in.
+### Experience (`src/routes/experience.tsx`)
+Reduce timeline from 4 to **4 real entries**:
 
-### 6. Hobbies (`hobbies.tsx`) — exactly 4:
-1. Chemistry & Pharmaceutical Knowledge (Flask icon)
-2. Bike Enthusiast (Bike icon)
-3. Car Tuning Expert (Wrench / Gauge icon)
-4. Gym & Fitness (Dumbbell icon)
+1. `2021 — 2022` · **DECI Programming — Level 1** @ Digital Egypt Cubs Initiative — "First certificate in the DECI program. Where the journey officially started: programming fundamentals, problem-solving, and getting comfortable thinking in code."
+2. `2022 — 2023` · **DECI Programming — Level 2** @ Digital Egypt Cubs Initiative — "Second DECI certificate. Deeper programming work, more structured projects, and the first real taste of building things end-to-end."
+3. `2023 — 2024` · **Self-Taught: Linux & Networks** @ Independent — "Spent the year going deep on Kali/Linux, networking concepts, and the basics of cybersecurity. Tools, protocols, and a lot of late-night labs."
+4. `2025 — now` · **Embedded Systems & Cybersecurity Track** @ DECI + Self-Study — "Working with microcontrollers and embedded projects, on track for the third DECI certificate (Cybersecurity). Stacking free online certifications from Cisco and other vendors along the way."
 
-Remove all others (CTF, Ham Radio, Track Days, etc.).
+### Contact (`src/routes/contact.tsx`)
+Update the `SOCIALS` constant — keep only the two that exist, remove LinkedIn and Twitter entries entirely so they don't render at all:
 
-### 7. Experience (`experience.tsx`)
-- Wipe fictional jobs (Helix Robotics, Bosch). Replace with **4 blank timeline entries** (role / org / dates / blurb placeholders) for you to edit manually, matching the same template idea as projects.
+- GitHub → `https://www.github.com/tamimmostafa` (handle: `@tamimmostafa`)
+- Instagram → `https://instagram.com/tamimmostafaa` (handle: `@tamimmostafaa`)
 
-### 8. Contact (`contact.tsx`)
-- Replace email with `support.tamim@gmail.com`.
-- Add a clearly commented `SOCIALS` constant block at the top of the file (GitHub, LinkedIn, X/Twitter, Instagram — empty strings) so you can paste your URLs in one place; renders only the ones with values.
+LinkedIn and Twitter rows removed from the array (rather than left as empty strings) — cleaner and avoids "in/tamim" placeholder ever leaking.
 
-### 9. Nav / footer
-- Brand mark → "TM" or "Tamim".
-- Footer → `© 2026 Tamim Mostafa`.
+### Secret page (`src/routes/secret.tsx`)
+Leave untouched per your choice.
 
-### 10. Login & allowed users
-- Login page copy: rename to Tamim's restricted console; remove any "Alex" reference.
-- After login, redirect:
-  - `tamim@tamimmostafa.site` → `/admin`
-  - `nona@tamimmostafa.site` → `/secret`
-- **Account creation** (done via backend tools, not in code):
-  - Create auth user `tamim@tamimmostafa.site` with password `TeMO@#2009!?$%*&`, display name "Tamim", role `admin`.
-  - Create auth user `nona@tamimmostafa.site` with password `NonA2962010#$`, display name "Nona", role `member`.
-  - Both email-confirmed so they can sign in immediately.
-  - Signup remains disabled (already configured), so only these two can ever log in.
-- Admin dashboard (`admin.tsx`) header → "Tamim // Command Center"; member secret page (`secret.tsx`) keeps placeholder message area untouched (still yours to write).
-
-### Technical notes
-- All edits are content-level in existing route files + one auth migration/admin call to seed the two users. No schema changes.
-- Social links and the 4 project/experience templates are wired as top-of-file constants/arrays with `// EDIT ME` comments so you can change everything without hunting through JSX.
-- Passwords will be set via the backend admin API (server-side seed), never committed to the repo.
+### Notes
+- All copy is editable later; constants stay at the top of each file.
+- Removing 1 project card and the 2 unused social slots means no empty/placeholder UI anywhere on the live site.

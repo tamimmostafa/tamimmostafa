@@ -26,10 +26,8 @@ export const Route = createFileRoute("/contact")({
 const CONTACT_EMAIL = "support.tamim@gmail.com";
 
 const SOCIALS: { i: typeof Github; t: string; h: string; url: string }[] = [
-  { i: Github,    t: "GitHub",        h: "@tamim",         url: "" },
-  { i: Linkedin,  t: "LinkedIn",      h: "in/tamim",       url: "" },
-  { i: Twitter,   t: "Twitter / X",   h: "@tamim",         url: "" },
-  { i: Instagram, t: "Instagram",     h: "@tamim",         url: "" },
+  { i: Github,    t: "GitHub",    h: "@tamimmostafa",  url: "https://www.github.com/tamimmostafa" },
+  { i: Instagram, t: "Instagram", h: "@tamimmostafaa", url: "https://instagram.com/tamimmostafaa" },
 ];
 // ============================================================
 
