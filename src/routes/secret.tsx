@@ -8,7 +8,7 @@ import { PageTransition } from "@/components/PageTransition";
 export const Route = createFileRoute("/secret")({
   head: () => ({
     meta: [
-      { title: "Secret — Members Only" },
+      { title: "—" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
