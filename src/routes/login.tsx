@@ -4,7 +4,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { Lock, Mail, User as UserIcon, ArrowRight } from "lucide-react";
+import { Lock, Mail, ArrowRight } from "lucide-react";
 
 const schema = z.object({
   email: z.string().trim().email({ message: "Invalid email" }).max(255),
