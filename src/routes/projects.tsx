@@ -21,40 +21,31 @@ export const Route = createFileRoute("/projects")({
 // ============================================================
 const projects = [
   {
-    year: "20XX",
-    name: "Project One",
-    role: "Role / Category",
-    desc: "Short description of what this project is and what you did. Replace this text with your own.",
-    tag: "Tag",
+    year: "coming soon",
+    name: "Alfa Romeo Brera — Sleeper Build",
+    role: "Car Tuning",
+    desc: "Personal sleeper build on the 1750 TBI engine, tuned to Stage 2+ targeting 320–360 hp. Custom ECU map, upgraded intake/exhaust path, reinforced clutch — daily-driveable on the outside, properly mean once the throttle opens.",
+    tag: "1750 TBI · Stage 2+",
     url: "#",
     color: "from-primary/30 to-transparent",
   },
   {
-    year: "20XX",
-    name: "Project Two",
-    role: "Role / Category",
-    desc: "Short description of what this project is and what you did. Replace this text with your own.",
-    tag: "Tag",
+    year: "2025",
+    name: "ESP32 Multi-Band Network Analyzer",
+    role: "Embedded · Security",
+    desc: "All-in-one ESP32 tool combining multi-band scanning, packet capture, and exploit modules. Built to learn radio + protocol attack surface hands-on, packaged as a single portable device.",
+    tag: "ESP32 · Wi-Fi/BLE",
     url: "#",
     color: "from-accent/30 to-transparent",
   },
   {
-    year: "20XX",
-    name: "Project Three",
-    role: "Role / Category",
-    desc: "Short description of what this project is and what you did. Replace this text with your own.",
-    tag: "Tag",
+    year: "2018 — now",
+    name: "Fiat Bravo '09 — 1.4 T-Jet Build",
+    role: "Car Tuning · Family Build",
+    desc: "Started by my father, continued by me. A 1.4 T-Jet pushed to 280–300 hp through staged tuning, hardware upgrades, and lots of road miles. The platform that taught me ECU mapping and how engines actually behave under load.",
+    tag: "1.4 T-Jet · 280–300 hp",
     url: "#",
     color: "from-primary/30 to-accent/30",
-  },
-  {
-    year: "20XX",
-    name: "Project Four",
-    role: "Role / Category",
-    desc: "Short description of what this project is and what you did. Replace this text with your own.",
-    tag: "Tag",
-    url: "#",
-    color: "from-accent/40 to-primary/20",
   },
 ];
 // ============================================================
@@ -65,7 +56,7 @@ function Projects() {
       <SectionHeader
         kicker="Selected work"
         title="Projects."
-        sub="Four slots — fill them with your own."
+        sub="A few things I've built — engines, embedded gear, and the occasional sleeper."
       />
 
       <div className="space-y-4">
