@@ -106,8 +106,8 @@ function Index() {
               </motion.div>
             </div>
 
-            <div className="absolute -top-3 -left-3 text-[10px] font-mono text-primary/70">001 / PORTRAIT</div>
-            <div className="absolute -bottom-3 -right-3 text-[10px] font-mono text-accent/70">// TM</div>
+            <div className="absolute -top-3 -left-3 text-[10px] font-mono text-primary/70">​</div>
+            <div className="absolute -bottom-3 -right-3 text-accent/70 text-sm font-serif font-semibold text-left">TM</div>
           </motion.div>
         </div>
       </section>
