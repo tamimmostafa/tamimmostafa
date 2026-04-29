@@ -63,7 +63,7 @@ export function Nav() {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest border border-primary/30 bg-primary/10 text-primary hover:glow-sm transition-shadow"
               >
                 <ShieldCheck size={12} />
-                {role ?? "member"}
+                console
               </Link>
               <button
                 onClick={handleSignOut}
@@ -76,9 +76,10 @@ export function Nav() {
           ) : (
             <Link
               to="/login"
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-primary text-primary-foreground hover:glow-sm transition-shadow"
+              className="p-2 text-muted-foreground hover:text-primary transition-colors"
+              aria-label="login"
             >
-              <LogIn size={12} /> Login
+              <LogIn size={14} />
             </Link>
           )}
         </div>
@@ -117,7 +118,7 @@ export function Nav() {
                   onClick={() => setOpen(false)}
                   className="px-4 py-3 rounded-lg text-sm font-medium text-primary hover:bg-secondary"
                 >
-                  {role === "admin" ? "Admin Console" : "Secret Page"}
+                  Console
                 </Link>
                 <button
                   onClick={() => { setOpen(false); handleSignOut(); }}
@@ -126,15 +127,7 @@ export function Nav() {
                   Sign out
                 </button>
               </>
-            ) : (
-              <Link
-                to="/login"
-                onClick={() => setOpen(false)}
-                className="px-4 py-3 rounded-lg text-sm font-medium text-primary hover:bg-secondary"
-              >
-                Login
-              </Link>
-            )}
+            ) : null}
           </div>
         </motion.nav>
       )}

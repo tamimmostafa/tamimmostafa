@@ -8,7 +8,7 @@ import { PageTransition } from "@/components/PageTransition";
 export const Route = createFileRoute("/secret")({
   head: () => ({
     meta: [
-      { title: "Secret — Members Only" },
+      { title: "—" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -42,10 +42,10 @@ function SecretPage() {
             <Lock className="text-primary" size={32} />
           </motion.div>
           <div className="font-mono text-xs tracking-[0.3em] uppercase text-primary mb-3">
-            — classified // members only
+            — private
           </div>
           <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter text-gradient">
-            Secret Message
+            For your eyes only
           </h1>
         </div>
 
