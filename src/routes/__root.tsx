@@ -3,6 +3,7 @@ import appCss from "../styles.css?url";
 import { Nav } from "@/components/Nav";
 import { Cursor } from "@/components/Cursor";
 import { Toaster } from "@/components/ui/sonner";
+import { AuthProvider } from "@/components/AuthProvider";
 
 function NotFoundComponent() {
   return (
@@ -65,14 +66,16 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      <Cursor />
-      <Nav />
-      <Outlet />
-      <footer className="border-t border-border/50 py-10 px-6 text-center text-sm text-muted-foreground font-mono">
-        © 2026 Alex Carter — built with intention.
-      </footer>
-      <Toaster />
-    </div>
+    <AuthProvider>
+      <div className="relative min-h-screen overflow-x-hidden">
+        <Cursor />
+        <Nav />
+        <Outlet />
+        <footer className="border-t border-border/50 py-10 px-6 text-center text-sm text-muted-foreground font-mono">
+          © 2026 Alex Carter — built with intention.
+        </footer>
+        <Toaster />
+      </div>
+    </AuthProvider>
   );
 }

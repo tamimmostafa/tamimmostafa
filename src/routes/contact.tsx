@@ -5,6 +5,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -52,8 +53,17 @@ function Contact() {
     }
     setErrors({});
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 900));
+    const { error } = await supabase.from("contact_messages").insert({
+      name: result.data.name,
+      email: result.data.email,
+      budget: result.data.budget || null,
+      message: result.data.message,
+    });
     setSubmitting(false);
+    if (error) {
+      toast.error("Could not send. Try again.");
+      return;
+    }
     setSubmitted(true);
     toast.success("Message sent — I'll reply within 2 days.");
   };
