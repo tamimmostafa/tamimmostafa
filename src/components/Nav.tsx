@@ -118,7 +118,7 @@ export function Nav() {
                   onClick={() => setOpen(false)}
                   className="px-4 py-3 rounded-lg text-sm font-medium text-primary hover:bg-secondary"
                 >
-                  {role === "admin" ? "Admin Console" : "Secret Page"}
+                  Console
                 </Link>
                 <button
                   onClick={() => { setOpen(false); handleSignOut(); }}
@@ -127,15 +127,7 @@ export function Nav() {
                   Sign out
                 </button>
               </>
-            ) : (
-              <Link
-                to="/login"
-                onClick={() => setOpen(false)}
-                className="px-4 py-3 rounded-lg text-sm font-medium text-primary hover:bg-secondary"
-              >
-                Login
-              </Link>
-            )}
+            ) : null}
           </div>
         </motion.nav>
       )}
