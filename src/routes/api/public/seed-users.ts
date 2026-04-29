@@ -18,7 +18,7 @@ const USERS = [
   },
 ];
 
-export const Route = createFileRoute("/api/seed-users")({
+export const Route = createFileRoute("/api/public/seed-users")({
   server: {
     handlers: {
       GET: async ({ request }) => {
