@@ -19,6 +19,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiSeedUsersRouteImport } from './routes/api/seed-users'
 
 const SkillsRoute = SkillsRouteImport.update({
   id: '/skills',
@@ -70,6 +71,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSeedUsersRoute = ApiSeedUsersRouteImport.update({
+  id: '/api/seed-users',
+  path: '/api/seed-users',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRoute
   '/secret': typeof SecretRoute
   '/skills': typeof SkillsRoute
+  '/api/seed-users': typeof ApiSeedUsersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/projects': typeof ProjectsRoute
   '/secret': typeof SecretRoute
   '/skills': typeof SkillsRoute
+  '/api/seed-users': typeof ApiSeedUsersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRoute
   '/secret': typeof SecretRoute
   '/skills': typeof SkillsRoute
+  '/api/seed-users': typeof ApiSeedUsersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/secret'
     | '/skills'
+    | '/api/seed-users'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/secret'
     | '/skills'
+    | '/api/seed-users'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/secret'
     | '/skills'
+    | '/api/seed-users'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +170,7 @@ export interface RootRouteChildren {
   ProjectsRoute: typeof ProjectsRoute
   SecretRoute: typeof SecretRoute
   SkillsRoute: typeof SkillsRoute
+  ApiSeedUsersRoute: typeof ApiSeedUsersRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +245,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/seed-users': {
+      id: '/api/seed-users'
+      path: '/api/seed-users'
+      fullPath: '/api/seed-users'
+      preLoaderRoute: typeof ApiSeedUsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsRoute: ProjectsRoute,
   SecretRoute: SecretRoute,
   SkillsRoute: SkillsRoute,
+  ApiSeedUsersRoute: ApiSeedUsersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
