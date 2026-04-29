@@ -14,8 +14,9 @@ const schema = z.object({
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Login — Alex Carter" },
-      { name: "description", content: "Sign in to your account." },
+      { title: "Access — Alex Carter" },
+      { name: "description", content: "Restricted access." },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: LoginPage,
@@ -23,10 +24,8 @@ export const Route = createFileRoute("/login")({
 
 function LoginPage() {
   const navigate = useNavigate();
-  const [mode, setMode] = useState<"login" | "signup">("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [displayName, setDisplayName] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -39,24 +38,9 @@ function LoginPage() {
 
     setLoading(true);
     try {
-      if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            emailRedirectTo: `${window.location.origin}/`,
-            data: { display_name: displayName || email.split("@")[0] },
-          },
-        });
-        if (error) throw error;
-        toast.success("Account created. Signing you in…");
-      } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
-        toast.success("Welcome back.");
-      }
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
 
-      // Route based on role
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
         const { data: roleRow } = await supabase
@@ -67,8 +51,8 @@ function LoginPage() {
         if (roleRow?.role === "admin") navigate({ to: "/admin" });
         else navigate({ to: "/secret" });
       }
-    } catch (err: any) {
-      toast.error(err.message ?? "Something went wrong");
+    } catch {
+      toast.error("Invalid credentials");
     } finally {
       setLoading(false);
     }
@@ -87,38 +71,17 @@ function LoginPage() {
       >
         <div className="text-center mb-8">
           <div className="font-mono text-xs tracking-[0.3em] uppercase text-primary mb-3">
-            — secure access
+            — restricted
           </div>
           <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tighter text-gradient">
-            {mode === "login" ? "Welcome back" : "Create account"}
+            Authenticate
           </h1>
-          <p className="mt-3 text-sm text-muted-foreground">
-            {mode === "login"
-              ? "Sign in to access protected sections."
-              : "Members get a secret hidden message."}
-          </p>
         </div>
 
         <div className="glass rounded-2xl p-8 border border-border/50 relative overflow-hidden">
           <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            {mode === "signup" && (
-              <div className="space-y-2">
-                <label className="font-mono text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                  <UserIcon size={12} /> Display name
-                </label>
-                <input
-                  type="text"
-                  value={displayName}
-                  onChange={(e) => setDisplayName(e.target.value)}
-                  className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-                  placeholder="Person 1"
-                  maxLength={100}
-                />
-              </div>
-            )}
-
             <div className="space-y-2">
               <label className="font-mono text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-2">
                 <Mail size={12} /> Email
@@ -157,20 +120,10 @@ function LoginPage() {
               disabled={loading}
               className="w-full bg-primary text-primary-foreground font-semibold py-3 rounded-lg flex items-center justify-center gap-2 hover:glow-md transition-shadow disabled:opacity-60"
             >
-              {loading ? "…" : mode === "login" ? "Sign in" : "Create account"}
+              {loading ? "…" : "Sign in"}
               <ArrowRight size={16} />
             </motion.button>
           </form>
-
-          <div className="mt-6 pt-6 border-t border-border/50 text-center text-sm text-muted-foreground">
-            {mode === "login" ? "No account?" : "Already have one?"}{" "}
-            <button
-              onClick={() => setMode(mode === "login" ? "signup" : "login")}
-              className="text-primary hover:underline font-medium"
-            >
-              {mode === "login" ? "Sign up" : "Sign in"}
-            </button>
-          </div>
         </div>
 
         <p className="text-center mt-6 text-xs font-mono text-muted-foreground">
