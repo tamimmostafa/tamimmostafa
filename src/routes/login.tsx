@@ -14,7 +14,7 @@ const schema = z.object({
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Access — Alex Carter" },
+      { title: "Access — Tamim" },
       { name: "description", content: "Restricted access." },
       { name: "robots", content: "noindex, nofollow" },
     ],

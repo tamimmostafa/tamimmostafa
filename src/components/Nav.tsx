@@ -30,7 +30,7 @@ export function Nav() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
           <span className="h-2.5 w-2.5 rounded-full bg-primary glow-sm group-hover:scale-125 transition-transform" />
-          <span className="font-display font-bold tracking-tight">alex.dev</span>
+          <span className="font-display font-bold tracking-tight">tamim.</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">

@@ -32,8 +32,8 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Alex Carter — Designer & Developer" },
-      { name: "description", content: "Personal portfolio of Alex Carter — product designer, full-stack developer, and creative technologist." },
+      { title: "Tamim Mostafa — Cybersecurity & Embedded Systems" },
+      { name: "description", content: "Personal portfolio of Tamim Mostafa — cybersecurity & embedded systems student from Cairo, with a passion for cars and performance tuning." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -72,7 +72,7 @@ function RootComponent() {
         <Nav />
         <Outlet />
         <footer className="border-t border-border/50 py-10 px-6 text-center text-sm text-muted-foreground font-mono">
-          © 2026 Alex Carter — built with intention.
+          © 2026 Tamim Mostafa — built with intention.
         </footer>
         <Toaster />
       </div>
