@@ -35,12 +35,11 @@ const groups = [
   {
     title: "Security Toolkit",
     items: [
-      { n: "Linux (expert)", l: 95 },
+      { n: "Linux / Kali", l: 95 },
       { n: "Burp Suite", l: 88 },
       { n: "Wireshark", l: 85 },
       { n: "Nmap", l: 88 },
       { n: "Hydra", l: 80 },
-      { n: "Kali Linux tools", l: 90 },
     ],
   },
 ];
@@ -100,7 +99,7 @@ function Skills() {
           Fluent in
         </div>
         <div className="flex flex-wrap gap-3">
-          {["Python", "Burp Suite", "Wireshark", "Nmap", "Hydra", "Kali Linux", "Linux"].map((t) => (
+          {["Python", "Linux / Kali", "Burp Suite", "Wireshark"].map((t) => (
             <span key={t} className="px-4 py-2 rounded-full border border-primary/40 bg-primary/10 text-sm font-mono text-primary">
               {t}
             </span>
