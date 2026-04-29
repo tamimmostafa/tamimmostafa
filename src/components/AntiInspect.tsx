@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 /**
  * Client-side deterrents against casual inspection.
- * NOTE: This cannot truly hide HTML — anyone can use view-source:, disable JS,
- * or use curl. It only blocks casual users.
  */
 export function AntiInspect() {
-  const [devtoolsOpen, setDevtoolsOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
