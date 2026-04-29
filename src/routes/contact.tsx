@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Mail, Github, Twitter, Linkedin, Instagram, ArrowUpRight, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Github, Instagram, ArrowUpRight, Send, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
