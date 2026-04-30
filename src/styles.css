@@ -116,9 +116,25 @@
   }
 }
 
+@keyframes grid-pan {
+  0% { background-position: 0 0; }
+  100% { background-position: 80px 80px; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 @layer utilities {
   .font-display { font-family: var(--font-display); }
   .font-mono { font-family: var(--font-mono); }
+
+  .animate-grid-pan { animation: grid-pan 20s linear infinite; }
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradient-shift 12s ease infinite;
+  }
 
   .text-gradient {
     background: var(--gradient-text);
