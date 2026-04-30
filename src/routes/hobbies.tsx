@@ -42,6 +42,7 @@ const hobbies = [
 function Hobbies() {
   return (
     <PageTransition>
+      <FloatingIcons variant="hobbies" />
       <SectionHeader
         kicker="Hobbies"
         title="Off the clock."
