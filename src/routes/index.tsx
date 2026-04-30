@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin, Wifi, Radar, Cpu, Gauge, Terminal, Zap, Radio, Activity } from "lucide-react";
 import { PageTransition } from "@/components/PageTransition";
 import profileImg from "@/assets/profile.jpg";
 
