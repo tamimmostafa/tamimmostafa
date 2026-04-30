@@ -25,37 +25,8 @@ function Index() {
           <div className="absolute top-1/4 -left-20 h-96 w-96 rounded-full bg-primary/25 blur-[120px] animate-pulse" />
           <div className="absolute bottom-1/4 -right-20 h-96 w-96 rounded-full bg-accent/25 blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-primary/10 blur-[100px]" />
-
-          {/* Floating decorative icons */}
-          <motion.div
-            animate={{ y: [0, -12, 0], rotate: [0, 8, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-12 right-10 text-accent/40 hidden md:block"
-          >
-            <Wifi size={36} strokeWidth={1.2} />
-          </motion.div>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-            className="absolute bottom-16 left-8 text-primary/40 hidden md:block"
-          >
-            <Radar size={42} strokeWidth={1.2} />
-          </motion.div>
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/3 left-1/2 text-accent/25 hidden lg:block"
-          >
-            <Cpu size={56} strokeWidth={1} />
-          </motion.div>
-          <motion.div
-            animate={{ y: [0, -8, 0], opacity: [0.3, 0.6, 0.3] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-24 right-1/3 text-primary/40 hidden md:block"
-          >
-            <Zap size={28} strokeWidth={1.5} />
-          </motion.div>
         </div>
+        <FloatingIcons variant="home" />
 
         <div className="relative grid lg:grid-cols-12 gap-12 items-center w-full">
           <motion.div
