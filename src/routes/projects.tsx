@@ -54,6 +54,7 @@ const projects = [
 function Projects() {
   return (
     <PageTransition>
+      <FloatingIcons variant="projects" />
       <SectionHeader
         kicker="Selected work"
         title="Projects."
