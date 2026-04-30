@@ -8,7 +8,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       exit={{ opacity: 0, y: -24, filter: "blur(8px)" }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className="pt-24 pb-24 px-6 max-w-7xl mx-auto min-h-screen"
+      className="relative pt-24 pb-24 px-6 max-w-7xl mx-auto min-h-screen"
     >
       {children}
     </motion.main>

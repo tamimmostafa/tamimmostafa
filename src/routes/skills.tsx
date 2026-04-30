@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
+import { FloatingIcons } from "@/components/FloatingIcons";
 
 export const Route = createFileRoute("/skills")({
   head: () => ({
@@ -47,6 +48,7 @@ const groups = [
 function Skills() {
   return (
     <PageTransition>
+      <FloatingIcons variant="skills" />
       <SectionHeader
         kicker="Skills"
         title="What I work with."

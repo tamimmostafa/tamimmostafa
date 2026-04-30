@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
+import { FloatingIcons } from "@/components/FloatingIcons";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -17,6 +18,7 @@ export const Route = createFileRoute("/about")({
 function About() {
   return (
     <PageTransition>
+      <FloatingIcons variant="about" />
       <SectionHeader
         kicker="About"
         title="Hello, I'm Tamim."
