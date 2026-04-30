@@ -18,6 +18,7 @@ export const Route = createFileRoute("/about")({
 function About() {
   return (
     <PageTransition>
+      <FloatingIcons variant="about" />
       <SectionHeader
         kicker="About"
         title="Hello, I'm Tamim."
