@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
+import { FloatingIcons } from "@/components/FloatingIcons";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
