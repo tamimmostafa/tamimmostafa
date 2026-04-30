@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
+import { FloatingIcons } from "@/components/FloatingIcons";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
