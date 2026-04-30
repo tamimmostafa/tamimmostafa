@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin, Wifi, Radar, Cpu, Gauge, Terminal, Zap, Radio, Activity } from "lucide-react";
 import { PageTransition } from "@/components/PageTransition";
 import profileImg from "@/assets/profile.jpg";
 
@@ -24,6 +24,36 @@ function Index() {
           <div className="absolute top-1/4 -left-20 h-96 w-96 rounded-full bg-primary/25 blur-[120px] animate-pulse" />
           <div className="absolute bottom-1/4 -right-20 h-96 w-96 rounded-full bg-accent/25 blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-primary/10 blur-[100px]" />
+
+          {/* Floating decorative icons */}
+          <motion.div
+            animate={{ y: [0, -12, 0], rotate: [0, 8, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-12 right-10 text-accent/40 hidden md:block"
+          >
+            <Wifi size={36} strokeWidth={1.2} />
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+            className="absolute bottom-16 left-8 text-primary/40 hidden md:block"
+          >
+            <Radar size={42} strokeWidth={1.2} />
+          </motion.div>
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/3 left-1/2 text-accent/25 hidden lg:block"
+          >
+            <Cpu size={56} strokeWidth={1} />
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, -8, 0], opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-24 right-1/3 text-primary/40 hidden md:block"
+          >
+            <Zap size={28} strokeWidth={1.5} />
+          </motion.div>
         </div>
 
         <div className="relative grid lg:grid-cols-12 gap-12 items-center w-full">
@@ -114,9 +144,9 @@ function Index() {
 
       <section className="mt-24 grid md:grid-cols-3 gap-6">
         {[
-          { k: "CYBER", v: "Offensive security & tooling" },
-          { k: "EMBED", v: "Low-level systems & protocols" },
-          { k: "AUTO", v: "Tuning, ECU mapping, builds" },
+          { k: "CYBER", v: "Offensive security & tooling", I: Terminal },
+          { k: "EMBED", v: "Low-level systems & protocols", I: Radio },
+          { k: "AUTO", v: "Tuning, ECU mapping, builds", I: Gauge },
         ].map((s, i) => (
           <motion.div
             key={s.v}
@@ -125,10 +155,35 @@ function Index() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
             whileHover={{ y: -4 }}
-            className="p-8 rounded-2xl border border-border bg-surface/40 backdrop-blur hover:border-primary/40 hover:glow-sm transition-all"
+            className="group relative p-8 rounded-2xl border border-border bg-surface/40 backdrop-blur hover:border-primary/40 hover:glow-sm transition-all overflow-hidden"
           >
+            <s.I size={64} strokeWidth={1} className="absolute -top-3 -right-3 text-primary/10 group-hover:text-accent/30 transition-colors" />
+            <s.I size={22} strokeWidth={1.5} className="text-accent mb-3" />
             <div className="text-4xl font-display font-bold text-gradient-primary">{s.k}</div>
             <div className="mt-3 text-sm font-mono text-muted-foreground uppercase tracking-wider">{s.v}</div>
+          </motion.div>
+        ))}
+      </section>
+
+      {/* Live signal strip */}
+      <section className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-3">
+        {[
+          { I: Wifi, label: "online" },
+          { I: Activity, label: "tracing" },
+          { I: Radar, label: "scanning" },
+          { I: Zap, label: "boosted" },
+        ].map((s, i) => (
+          <motion.div
+            key={s.label}
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: i * 0.08 }}
+            className="flex items-center gap-3 px-4 py-3 rounded-xl border border-border/60 bg-surface/30 backdrop-blur font-mono text-xs"
+          >
+            <s.I size={16} className="text-primary animate-pulse" />
+            <span className="text-muted-foreground uppercase tracking-widest">{s.label}</span>
+            <span className="ml-auto text-accent">●</span>
           </motion.div>
         ))}
       </section>
