@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowUpRight, MapPin, Wifi, Gauge, Terminal, Zap, Radio, Activity, Radar } from "lucide-react";
 import { PageTransition } from "@/components/PageTransition";
-import { FloatingIcons } from "@/components/FloatingIcons";
+import { LazyFloatingIcons } from "@/components/LazyFloatingIcons";
 import profileImg from "@/assets/profile.jpg";
 
 export const Route = createFileRoute("/")({
@@ -26,7 +26,7 @@ function Index() {
           <div className="absolute bottom-1/4 -right-20 h-96 w-96 rounded-full bg-accent/25 blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-primary/10 blur-[100px]" />
         </div>
-        <FloatingIcons variant="home" />
+        <LazyFloatingIcons variant="home" />
 
         <div className="relative grid lg:grid-cols-12 gap-12 items-center w-full">
           <motion.div

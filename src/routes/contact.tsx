@@ -4,7 +4,7 @@ import { Mail, Github, Instagram, ArrowUpRight, Send, CheckCircle2 } from "lucid
 import { useState } from "react";
 import { z } from "zod";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
-import { FloatingIcons } from "@/components/FloatingIcons";
+import { LazyFloatingIcons } from "@/components/LazyFloatingIcons";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -79,7 +79,7 @@ function Contact() {
 
   return (
     <PageTransition>
-      <FloatingIcons variant="contact" />
+      <LazyFloatingIcons variant="contact" />
       <SectionHeader
         kicker="Contact"
         title="Let's talk."
