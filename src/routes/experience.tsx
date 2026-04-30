@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
-import { FloatingIcons } from "@/components/FloatingIcons";
+import { LazyFloatingIcons } from "@/components/LazyFloatingIcons";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
@@ -29,7 +29,7 @@ const items = [
 function Experience() {
   return (
     <PageTransition>
-      <FloatingIcons variant="experience" />
+      <LazyFloatingIcons variant="experience" />
       <SectionHeader
         kicker="Experience"
         title="The path so far."

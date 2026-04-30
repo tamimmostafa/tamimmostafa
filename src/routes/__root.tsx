@@ -5,6 +5,7 @@ import { Cursor } from "@/components/Cursor";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/components/AuthProvider";
 import { AntiInspect } from "@/components/AntiInspect";
+import { AnimatedBackground } from "@/components/AnimatedBackground";
 
 function NotFoundComponent() {
   return (
@@ -77,6 +78,7 @@ function RootComponent() {
   return (
     <AuthProvider>
       <div className="relative min-h-screen overflow-x-hidden">
+        <AnimatedBackground />
         <AntiInspect />
         <Cursor />
         <Nav />

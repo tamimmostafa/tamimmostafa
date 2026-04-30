@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { FlaskConical, Bike, Gauge, Dumbbell } from "lucide-react";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
-import { FloatingIcons } from "@/components/FloatingIcons";
+import { LazyFloatingIcons } from "@/components/LazyFloatingIcons";
 
 export const Route = createFileRoute("/hobbies")({
   head: () => ({
@@ -42,7 +42,7 @@ const hobbies = [
 function Hobbies() {
   return (
     <PageTransition>
-      <FloatingIcons variant="hobbies" />
+      <LazyFloatingIcons variant="hobbies" />
       <SectionHeader
         kicker="Hobbies"
         title="Off the clock."
