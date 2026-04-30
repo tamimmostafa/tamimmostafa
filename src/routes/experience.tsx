@@ -29,6 +29,7 @@ const items = [
 function Experience() {
   return (
     <PageTransition>
+      <FloatingIcons variant="experience" />
       <SectionHeader
         kicker="Experience"
         title="The path so far."
