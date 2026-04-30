@@ -79,6 +79,7 @@ function Contact() {
 
   return (
     <PageTransition>
+      <FloatingIcons variant="contact" />
       <SectionHeader
         kicker="Contact"
         title="Let's talk."
