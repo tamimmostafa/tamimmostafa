@@ -48,6 +48,7 @@ const groups = [
 function Skills() {
   return (
     <PageTransition>
+      <FloatingIcons variant="skills" />
       <SectionHeader
         kicker="Skills"
         title="What I work with."
