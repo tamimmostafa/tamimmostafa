@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowUpRight, MapPin, Wifi, Radar, Cpu, Gauge, Terminal, Zap, Radio, Activity } from "lucide-react";
+import { ArrowUpRight, MapPin, Wifi, Gauge, Terminal, Zap, Radio, Activity, Radar } from "lucide-react";
 import { PageTransition } from "@/components/PageTransition";
+import { FloatingIcons } from "@/components/FloatingIcons";
 import profileImg from "@/assets/profile.jpg";
 
 export const Route = createFileRoute("/")({
