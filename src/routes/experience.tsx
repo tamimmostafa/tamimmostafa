@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
 import { LazyFloatingIcons } from "@/components/LazyFloatingIcons";
+import { PageNav } from "@/components/PageNav";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
@@ -19,10 +20,10 @@ export const Route = createFileRoute("/experience")({
 // EDIT ME — fill in your 4 timeline entries below.
 // ============================================================
 const items = [
-  { y: "2025 — now", role: "Embedded Systems & Cybersecurity Track", co: "DECI + Self-Study", desc: "Working with microcontrollers and embedded projects, on track for the third DECI certificate (Cybersecurity). Stacking free online certifications from Cisco and other vendors along the way." },
-  { y: "2023 — 2024", role: "Self-Taught: Linux & Networks", co: "Independent", desc: "Spent the year going deep on Kali/Linux, networking concepts, and the basics of cybersecurity. Tools, protocols, and a lot of late-night labs." },
-  { y: "2022 — 2023", role: "DECI Programming — Level 2", co: "Digital Egypt Cubs Initiative", desc: "Second DECI certificate. Deeper programming work, more structured projects, and the first real taste of building things end-to-end." },
   { y: "2021 — 2022", role: "DECI Programming — Level 1", co: "Digital Egypt Cubs Initiative", desc: "First certificate in the DECI program. Where the journey officially started: programming fundamentals, problem-solving, and getting comfortable thinking in code." },
+  { y: "2022 — 2023", role: "DECI Programming — Level 2", co: "Digital Egypt Cubs Initiative", desc: "Second DECI certificate. Deeper programming work, more structured projects, and the first real taste of building things end-to-end." },
+  { y: "2023 — 2024", role: "Self-Taught: Linux & Networks", co: "Independent", desc: "Spent the year going deep on Kali/Linux, networking concepts, and the basics of cybersecurity. Tools, protocols, and a lot of late-night labs." },
+  { y: "2025 — now", role: "Embedded Systems & Cybersecurity Track", co: "DECI + Self-Study", desc: "Working with microcontrollers and embedded projects, on track for the third DECI certificate (Cybersecurity). Stacking free online certifications from Cisco and other vendors along the way." },
 ];
 // ============================================================
 
