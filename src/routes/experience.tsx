@@ -62,6 +62,8 @@ function Experience() {
           ))}
         </div>
       </div>
+
+      <PageNav current="/experience" />
     </PageTransition>
   );
 }
