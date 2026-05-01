@@ -107,8 +107,6 @@ function Skills() {
         <div className="flex flex-wrap gap-3">
           {[
             "Linux Systems",
-            "TCP/IP",
-            "PCB Design",
             "Reverse Engineering",
             "Burp Suite",
             "Metasploit Framework",
