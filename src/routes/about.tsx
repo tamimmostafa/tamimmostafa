@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
 import { LazyFloatingIcons } from "@/components/LazyFloatingIcons";
+import { PageNav } from "@/components/PageNav";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -81,6 +82,8 @@ function About() {
           "You don't learn by <span className="italic text-gradient">getting it right</span> — you learn by getting it wrong."
         </blockquote>
       </motion.div>
+
+      <PageNav current="/about" />
     </PageTransition>
   );
 }

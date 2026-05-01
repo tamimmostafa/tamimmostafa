@@ -24,8 +24,7 @@ export function LazyFloatingIcons({ variant = "home" }: { variant?: Variant }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Skip on mobile (icons are md:block only) and reduced-motion users.
-    if (window.matchMedia("(max-width: 767px)").matches) return;
+    // Respect reduced-motion users.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const w = window as Window & {

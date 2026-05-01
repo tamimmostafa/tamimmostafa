@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
 import { LazyFloatingIcons } from "@/components/LazyFloatingIcons";
+import { PageNav } from "@/components/PageNav";
 
 export const Route = createFileRoute("/skills")({
   head: () => ({
@@ -21,26 +22,29 @@ const groups = [
     items: [
       { n: "Python", l: 92 },
       { n: "JavaScript", l: 80 },
-      { n: "PHP", l: 70 },
-      { n: "Binary & Hex", l: 85 },
+      { n: "C++", l: 75 },
+      { n: "PHP", l: 68 },
+      { n: "Binary / Machine Code / Hex", l: 78 },
     ],
   },
   {
     title: "Networks & Hardware",
     items: [
-      { n: "Networks & Protocols", l: 85 },
-      { n: "CAN bus & OBD", l: 80 },
-      { n: "ECU Tuning & Mapping", l: 78 },
+      { n: "Network Fundamentals", l: 94 },
+      { n: "Hardware Hacking", l: 77 },
+      { n: "Network Analysis", l: 85 },
+      { n: "Embedded Security", l: 70 },
+      { n: "Low-Level Debugging", l: 72 },
     ],
   },
   {
-    title: "Security Toolkit",
+    title: "Technical Communication",
     items: [
-      { n: "Linux / Kali", l: 95 },
-      { n: "Burp Suite", l: 88 },
-      { n: "Wireshark", l: 85 },
-      { n: "Nmap", l: 88 },
-      { n: "Hydra", l: 80 },
+      { n: "Technical Writing", l: 84 },
+      { n: "Verbal Explanation", l: 89 },
+      { n: "Simplification", l: 81 },
+      { n: "Documentation", l: 91 },
+      { n: "Knowledge Sharing", l: 79 },
     ],
   },
 ];
@@ -98,16 +102,27 @@ function Skills() {
         className="mt-20"
       >
         <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6">
-          Fluent in
+          Also fluent in
         </div>
         <div className="flex flex-wrap gap-3">
-          {["Python", "Linux / Kali", "Burp Suite", "Wireshark"].map((t) => (
+          {[
+            "Linux Systems",
+            "TCP/IP",
+            "PCB Design",
+            "Reverse Engineering",
+            "Burp Suite",
+            "Metasploit Framework",
+            "ECU Tuning",
+            "OSINT",
+          ].map((t) => (
             <span key={t} className="px-4 py-2 rounded-full border border-primary/40 bg-primary/10 text-sm font-mono text-primary">
               {t}
             </span>
           ))}
         </div>
       </motion.div>
+
+      <PageNav current="/skills" />
     </PageTransition>
   );
 }

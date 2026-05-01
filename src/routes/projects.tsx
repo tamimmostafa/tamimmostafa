@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
 import { LazyFloatingIcons } from "@/components/LazyFloatingIcons";
+import { PageNav } from "@/components/PageNav";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -22,11 +23,11 @@ export const Route = createFileRoute("/projects")({
 // ============================================================
 const projects = [
   {
-    year: "Coming soon",
+    year: "Future plan",
     name: "Alfa Romeo Brera — Sleeper Build",
-    role: "Car Tuning",
-    desc: "Personal sleeper build on the 1750 TBI engine, tuned to Stage 2+ targeting 320–360 hp. Custom ECU map, upgraded intake/exhaust path, reinforced clutch — daily-driveable on the outside, properly mean once the throttle opens.",
-    tag: "1750 TBI · Stage 2+",
+    role: "Car Tuning · Planning",
+    desc: "A future build I'm planning from now: an Alfa Romeo Brera on the 1750 TBI, targeted at Stage 2+ (320–360 hp). Custom ECU map, upgraded intake/exhaust path, reinforced clutch — innocent on the outside, properly mean once the throttle opens. Still on paper today, but the spec is already locked in my head.",
+    tag: "1750 TBI · Stage 2+ (Planned)",
     url: "#",
     color: "from-primary/30 to-transparent",
   },
@@ -43,8 +44,8 @@ const projects = [
     year: "2012 — now",
     name: "Fiat Bravo '09 — 1.4 T-Jet Build",
     role: "Car Tuning · Family Build",
-    desc: "Started by my father, continued by me. A 1.4 T-Jet pushed to 280–300 hp through staged tuning, hardware upgrades, and lots of road miles. The platform that taught me ECU mapping and how engines actually behave under load.",
-    tag: "1.4 T-Jet · 280–300 hp",
+    desc: "Started by my father, continued by me. A 1.4 T-Jet pushed to Stage 2+ (280–300 hp) through staged tuning, hardware upgrades, and lots of road miles. The platform that taught me ECU mapping and how engines actually behave under load.",
+    tag: "1.4 T-Jet · Stage 2+",
     url: "#",
     color: "from-primary/30 to-accent/30",
   },
@@ -93,6 +94,8 @@ function Projects() {
           </motion.a>
         ))}
       </div>
+
+      <PageNav current="/projects" />
     </PageTransition>
   );
 }
