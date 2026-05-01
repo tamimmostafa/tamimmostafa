@@ -1,10 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Mail, Github, Instagram, ArrowUpRight, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Github, Instagram, Linkedin, ArrowUpRight, Send, CheckCircle2, LogIn } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
 import { LazyFloatingIcons } from "@/components/LazyFloatingIcons";
+import { PageNav } from "@/components/PageNav";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -24,10 +25,11 @@ export const Route = createFileRoute("/contact")({
 // EDIT ME — your contact email & social links.
 // Leave a value as "" to hide that social card.
 // ============================================================
-const CONTACT_EMAIL = "support.tamim@gmail.com";
+const CONTACT_EMAIL = "contact@tamimmostafa.site";
 
 const SOCIALS: { i: typeof Github; t: string; h: string; url: string }[] = [
   { i: Github,    t: "GitHub",    h: "@tamimmostafa",  url: "https://www.github.com/tamimmostafa" },
+  { i: Linkedin,  t: "LinkedIn",  h: "in/tamimmostafa", url: "https://linkedin.com/in/tamimmostafa" },
   { i: Instagram, t: "Instagram", h: "@tamimmostafaa", url: "https://instagram.com/tamimmostafaa" },
 ];
 // ============================================================
