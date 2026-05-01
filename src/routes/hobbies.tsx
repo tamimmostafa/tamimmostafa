@@ -68,6 +68,8 @@ function Hobbies() {
           </motion.div>
         ))}
       </div>
+
+      <PageNav current="/hobbies" />
     </PageTransition>
   );
 }
