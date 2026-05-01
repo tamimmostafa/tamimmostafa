@@ -94,6 +94,8 @@ function Projects() {
           </motion.a>
         ))}
       </div>
+
+      <PageNav current="/projects" />
     </PageTransition>
   );
 }
