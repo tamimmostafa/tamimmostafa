@@ -231,6 +231,42 @@ function Contact() {
           ))}
         </div>
       </div>
+
+      {/* Huge login CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mt-20"
+      >
+        <Link
+          to="/login"
+          className="group relative block overflow-hidden rounded-3xl border border-primary/40 bg-gradient-to-br from-primary/20 via-surface to-accent/20 p-10 md:p-16 text-center hover:border-primary transition-all hover:glow-primary"
+        >
+          <div className="absolute -top-32 -left-32 h-72 w-72 rounded-full bg-primary/30 blur-3xl group-hover:bg-primary/50 transition-all duration-700 pointer-events-none" />
+          <div className="absolute -bottom-32 -right-32 h-72 w-72 rounded-full bg-accent/30 blur-3xl group-hover:bg-accent/50 transition-all duration-700 pointer-events-none" />
+
+          <div className="relative">
+            <div className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-6">
+              — Members area
+            </div>
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tighter text-gradient leading-none">
+              Login
+            </h2>
+            <p className="mt-6 text-muted-foreground max-w-lg mx-auto">
+              Sign in to access the private console.
+            </p>
+            <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground group-hover:scale-105 transition-transform">
+              <LogIn size={18} />
+              Enter login
+              <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
+            </div>
+          </div>
+        </Link>
+      </motion.div>
+
+      <PageNav current="/contact" />
     </PageTransition>
   );
 }
