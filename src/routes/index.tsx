@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, MapPin, Wifi, Gauge, Terminal, Zap, Radio, Activity, Radar } from "lucide-react";
 import { PageTransition } from "@/components/PageTransition";
 import { LazyFloatingIcons } from "@/components/LazyFloatingIcons";
+import { PageNav } from "@/components/PageNav";
 import profileImg from "@/assets/profile.jpg";
 
 export const Route = createFileRoute("/")({
@@ -184,6 +185,8 @@ function Index() {
           </motion.div>
         </motion.div>
       </section>
+
+      <PageNav current="/" />
     </PageTransition>
   );
 }
