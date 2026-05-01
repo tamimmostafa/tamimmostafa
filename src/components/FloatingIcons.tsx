@@ -118,7 +118,7 @@ function DecoIcon({ d, scrollY, mx, my }: { d: Deco; scrollY: MotionValue<number
   return (
     <motion.div
       style={{ y: py, x: cx, translateY: cy }}
-      className={`absolute hidden md:block ${d.className} ${
+      className={`absolute ${d.className} ${
         d.tone === "accent" ? "text-accent/35" : "text-primary/35"
       }`}
     >
