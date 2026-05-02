@@ -5,7 +5,7 @@ import { PageTransition, SectionHeader } from "@/components/PageTransition";
 import { LazyFloatingIcons } from "@/components/LazyFloatingIcons";
 import { PageNav } from "@/components/PageNav";
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "Projects — Tamim Mostafa" },
