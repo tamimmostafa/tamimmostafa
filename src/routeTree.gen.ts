@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SkillsRouteImport } from './routes/skills'
 import { Route as SecretRouteImport } from './routes/secret'
-import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as HobbiesRouteImport } from './routes/hobbies'
 import { Route as ExperienceRouteImport } from './routes/experience'
@@ -19,6 +18,10 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
+import { Route as ProjectsEsp32RouteImport } from './routes/projects.esp32'
+import { Route as ProjectsBreraRouteImport } from './routes/projects.brera'
+import { Route as ProjectsBravoRouteImport } from './routes/projects.bravo'
 
 const SkillsRoute = SkillsRouteImport.update({
   id: '/skills',
@@ -28,11 +31,6 @@ const SkillsRoute = SkillsRouteImport.update({
 const SecretRoute = SecretRouteImport.update({
   id: '/secret',
   path: '/secret',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -70,6 +68,26 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsEsp32Route = ProjectsEsp32RouteImport.update({
+  id: '/projects/esp32',
+  path: '/projects/esp32',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsBreraRoute = ProjectsBreraRouteImport.update({
+  id: '/projects/brera',
+  path: '/projects/brera',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsBravoRoute = ProjectsBravoRouteImport.update({
+  id: '/projects/bravo',
+  path: '/projects/bravo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -79,9 +97,12 @@ export interface FileRoutesByFullPath {
   '/experience': typeof ExperienceRoute
   '/hobbies': typeof HobbiesRoute
   '/login': typeof LoginRoute
-  '/projects': typeof ProjectsRoute
   '/secret': typeof SecretRoute
   '/skills': typeof SkillsRoute
+  '/projects/bravo': typeof ProjectsBravoRoute
+  '/projects/brera': typeof ProjectsBreraRoute
+  '/projects/esp32': typeof ProjectsEsp32Route
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -91,9 +112,12 @@ export interface FileRoutesByTo {
   '/experience': typeof ExperienceRoute
   '/hobbies': typeof HobbiesRoute
   '/login': typeof LoginRoute
-  '/projects': typeof ProjectsRoute
   '/secret': typeof SecretRoute
   '/skills': typeof SkillsRoute
+  '/projects/bravo': typeof ProjectsBravoRoute
+  '/projects/brera': typeof ProjectsBreraRoute
+  '/projects/esp32': typeof ProjectsEsp32Route
+  '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -104,9 +128,12 @@ export interface FileRoutesById {
   '/experience': typeof ExperienceRoute
   '/hobbies': typeof HobbiesRoute
   '/login': typeof LoginRoute
-  '/projects': typeof ProjectsRoute
   '/secret': typeof SecretRoute
   '/skills': typeof SkillsRoute
+  '/projects/bravo': typeof ProjectsBravoRoute
+  '/projects/brera': typeof ProjectsBreraRoute
+  '/projects/esp32': typeof ProjectsEsp32Route
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -118,9 +145,12 @@ export interface FileRouteTypes {
     | '/experience'
     | '/hobbies'
     | '/login'
-    | '/projects'
     | '/secret'
     | '/skills'
+    | '/projects/bravo'
+    | '/projects/brera'
+    | '/projects/esp32'
+    | '/projects/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -130,9 +160,12 @@ export interface FileRouteTypes {
     | '/experience'
     | '/hobbies'
     | '/login'
-    | '/projects'
     | '/secret'
     | '/skills'
+    | '/projects/bravo'
+    | '/projects/brera'
+    | '/projects/esp32'
+    | '/projects'
   id:
     | '__root__'
     | '/'
@@ -142,9 +175,12 @@ export interface FileRouteTypes {
     | '/experience'
     | '/hobbies'
     | '/login'
-    | '/projects'
     | '/secret'
     | '/skills'
+    | '/projects/bravo'
+    | '/projects/brera'
+    | '/projects/esp32'
+    | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -155,9 +191,12 @@ export interface RootRouteChildren {
   ExperienceRoute: typeof ExperienceRoute
   HobbiesRoute: typeof HobbiesRoute
   LoginRoute: typeof LoginRoute
-  ProjectsRoute: typeof ProjectsRoute
   SecretRoute: typeof SecretRoute
   SkillsRoute: typeof SkillsRoute
+  ProjectsBravoRoute: typeof ProjectsBravoRoute
+  ProjectsBreraRoute: typeof ProjectsBreraRoute
+  ProjectsEsp32Route: typeof ProjectsEsp32Route
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -174,13 +213,6 @@ declare module '@tanstack/react-router' {
       path: '/secret'
       fullPath: '/secret'
       preLoaderRoute: typeof SecretRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -232,6 +264,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/esp32': {
+      id: '/projects/esp32'
+      path: '/projects/esp32'
+      fullPath: '/projects/esp32'
+      preLoaderRoute: typeof ProjectsEsp32RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/brera': {
+      id: '/projects/brera'
+      path: '/projects/brera'
+      fullPath: '/projects/brera'
+      preLoaderRoute: typeof ProjectsBreraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/bravo': {
+      id: '/projects/bravo'
+      path: '/projects/bravo'
+      fullPath: '/projects/bravo'
+      preLoaderRoute: typeof ProjectsBravoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -243,9 +303,12 @@ const rootRouteChildren: RootRouteChildren = {
   ExperienceRoute: ExperienceRoute,
   HobbiesRoute: HobbiesRoute,
   LoginRoute: LoginRoute,
-  ProjectsRoute: ProjectsRoute,
   SecretRoute: SecretRoute,
   SkillsRoute: SkillsRoute,
+  ProjectsBravoRoute: ProjectsBravoRoute,
+  ProjectsBreraRoute: ProjectsBreraRoute,
+  ProjectsEsp32Route: ProjectsEsp32Route,
+  ProjectsIndexRoute: ProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
