@@ -55,7 +55,7 @@ function Experience() {
               transition={{ duration: 0.6 }}
               className={`relative grid md:grid-cols-2 gap-8 ${i % 2 === 0 ? "" : "md:[direction:rtl]"}`}
             >
-              <div className="hidden md:flex md:[direction:ltr] items-start justify-center px-4">
+              <div className="md:flex md:[direction:ltr] items-start justify-center md:px-4 order-2 md:order-1 pl-8 md:pl-0 mt-4 md:mt-0">
                 {it.img && (
                   <motion.img
                     src={it.img}
