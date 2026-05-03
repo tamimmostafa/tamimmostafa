@@ -19,11 +19,16 @@ export const Route = createFileRoute("/experience")({
 // ============================================================
 // EDIT ME — fill in your 4 timeline entries below.
 // ============================================================
+import certLevel1 from "@/assets/certificate_level1.jpg";
+import certLevel2 from "@/assets/certificate_level2.jpg";
+import linuxImg from "@/assets/linux.png";
+import embeddedImg from "@/assets/embedded.jpg";
+
 const items = [
-  { y: "2021 — 2022", role: "DECI Programming — Level 1", co: "Digital Egypt Cubs Initiative", desc: "First certificate in the DECI program. Where the journey officially started: programming fundamentals, problem-solving, and getting comfortable thinking in code." },
-  { y: "2022 — 2023", role: "DECI Programming — Level 2", co: "Digital Egypt Cubs Initiative", desc: "Second DECI certificate. Deeper programming work, more structured projects, and the first real taste of building things end-to-end." },
-  { y: "2023 — 2024", role: "Self-Taught: Linux & Networks", co: "Independent", desc: "Spent the year going deep on Kali/Linux, networking concepts, and the basics of cybersecurity. Tools, protocols, and a lot of late-night labs." },
-  { y: "2025 — now", role: "Embedded Systems & Cybersecurity Track", co: "DECI + Self-Study", desc: "Working with microcontrollers and embedded projects, on track for the third DECI certificate (Cybersecurity). Stacking free online certifications from Cisco and other vendors along the way." },
+  { y: "2021 — 2022", role: "DECI Programming — Level 1", co: "Digital Egypt Cubs Initiative", desc: "First certificate in the DECI program. Where the journey officially started: programming fundamentals, problem-solving, and getting comfortable thinking in code.", img: certLevel1, alt: "DECI Programming Level 1 certificate" },
+  { y: "2022 — 2023", role: "DECI Programming — Level 2", co: "Digital Egypt Cubs Initiative", desc: "Second DECI certificate. Deeper programming work, more structured projects, and the first real taste of building things end-to-end.", img: certLevel2, alt: "DECI Programming Level 2 certificate" },
+  { y: "2023 — 2024", role: "Self-Taught: Linux & Networks", co: "Independent", desc: "Spent the year going deep on Kali/Linux, networking concepts, and the basics of cybersecurity. Tools, protocols, and a lot of late-night labs.", img: linuxImg, alt: "Linux / Kali terminal" },
+  { y: "2025 — now", role: "Embedded Systems & Cybersecurity Track", co: "DECI + Self-Study", desc: "Working with microcontrollers and embedded projects, on track for the third DECI certificate (Cybersecurity). Stacking free online certifications from Cisco and other vendors along the way.", img: embeddedImg, alt: "Embedded systems hardware" },
 ];
 // ============================================================
 
