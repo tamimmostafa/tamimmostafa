@@ -101,6 +101,26 @@ function BravoPage() {
         ))}
       </div>
 
+      <div className="mt-16 grid md:grid-cols-2 gap-8">
+        {[
+          { src: bravoDiagram, alt: "Fiat Bravo tuning diagram", cap: "The build plan — laid out", rot: -2 },
+          { src: bravoEngine, alt: "Fiat Bravo 1.4 T-Jet engine", cap: "The 1.4 T-Jet — under the hood", rot: 2 },
+          { src: bravoGauge, alt: "Fiat Bravo boost gauge", cap: "Boost on tap", rot: -1.5 },
+          { src: bravoTopspeed, alt: "Fiat Bravo top speed run", cap: "Top speed run", rot: 1.5 },
+        ].map((img) => (
+          <motion.figure
+            key={img.cap}
+            initial={{ opacity: 0, y: 30, rotate: img.rot }}
+            whileInView={{ opacity: 1, y: 0, rotate: img.rot }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <img src={img.src} alt={img.alt} className="w-full rounded-2xl border border-border shadow-2xl" loading="lazy" />
+            <figcaption className="mt-3 text-sm font-mono text-muted-foreground text-center">{img.cap}</figcaption>
+          </motion.figure>
+        ))}
+      </div>
+
       <div className="mt-16 flex justify-center">
         <Link
           to="/projects"
