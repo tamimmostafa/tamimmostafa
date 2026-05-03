@@ -1,7 +1,7 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { Lock, Sparkles } from "lucide-react";
+import { Lock, Sparkles, ArrowRight } from "lucide-react";
 import { useAuth } from "@/components/AuthProvider";
 import { PageTransition } from "@/components/PageTransition";
 
@@ -49,13 +49,6 @@ function SecretPage() {
           </h1>
         </div>
 
-        {/*
-          ====================================================
-          ✏️  WRITE YOUR HIDDEN MESSAGE HERE
-          Replace the placeholder text below with whatever
-          you want members (Person 1, etc.) to see.
-          ====================================================
-        */}
         <div className="glass rounded-2xl p-10 md:p-14 border border-border/50 relative overflow-hidden">
           <div className="absolute -top-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
           <div className="absolute -bottom-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
@@ -65,14 +58,39 @@ function SecretPage() {
             decrypted_payload.txt
           </div>
 
-          <div className="prose prose-invert max-w-none">
-            <p className="text-lg md:text-xl leading-relaxed text-foreground/90">
-              [ Your secret message goes here ]
+          <div className="prose prose-invert max-w-none space-y-5 text-foreground/90 text-lg leading-relaxed">
+            <p>Hey! I hope you are doing well.</p>
+            <p>
+              I've been doing a lot of thinking lately and realized I need to focus more on myself
+              and my own independence. I'm working on creating my own character, which means I'm
+              becoming much more private about my 'inner me' and where I spend my energy. Along
+              with that, I want to ensure you that I keep my matters private; no one knows about
+              this message or our situation, and I intend to keep it that way.
             </p>
-            <p className="mt-4 text-muted-foreground">
-              Open <code className="text-primary">src/routes/secret.tsx</code> and replace this
-              block with anything you'd like members to read.
+            <p>
+              Still, I was raised to be helpful, and I heard your brother is interested in
+              technology. I gathered some courses in modern Computer Science for him so he can get
+              a head start and be excellently taught at a young age. Since they are in English—and
+              I know you are all brilliantly taught in English—I'm sure he could finish them
+              perfectly in about a month.
             </p>
+            <p>
+              I don't want to cause any tension or problems between you and your mother, so please
+              don't feel like you have to reply to this. This is just my way of leaving a good
+              impression and doing one last helpful thing before I move on with my own path. You
+              have the choice to accept or decline.
+            </p>
+            <p>Be safe.</p>
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              to="/secret/courses"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/40 text-primary hover:bg-primary/20 transition-all glow-md font-mono text-sm tracking-wide"
+            >
+              Check courses
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </motion.div>
