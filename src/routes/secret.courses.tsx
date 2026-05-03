@@ -24,19 +24,44 @@ export const Route = createFileRoute("/secret/courses")({
 */
 const COURSES: { title: string; description: string; url: string }[] = [
   {
-    title: "CS50: Introduction to Computer Science — Harvard",
-    description: "The classic starting point. Covers C, Python, algorithms, data structures, and web basics.",
-    url: "https://cs50.harvard.edu/x/",
+    title: "Machine Learning — Fundamentals of Python Machine Learning",
+    description: "A practical intro to ML with Python. Build intuition for models, training, and evaluation.",
+    url: "https://mega.nz/file/TQI1xJ4A#7ZlUQ5bs5PeiayklYzj9jN8J-JnJVmT-Obr2Mmm7zyU",
   },
   {
-    title: "Python for Everybody — University of Michigan",
-    description: "A gentle intro to programming with Python. Great first language path.",
-    url: "https://www.py4e.com/",
+    title: "DeepSeek R1 & ChatGPT — How to Supercharge AI with 20+ Tools",
+    description: "Get the most out of modern AI assistants with a curated toolbox of workflows.",
+    url: "https://mega.nz/file/TQI1xJ4A#7ZlUQ5bs5PeiayklYzj9jN8J-JnJVmT-Obr2Mmm7zyU",
   },
   {
-    title: "freeCodeCamp — Responsive Web Design",
-    description: "Hands-on HTML & CSS, build real projects from day one.",
-    url: "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+    title: "Cybersecurity 101 — The Fundamentals of Cybersecurity",
+    description: "Foundational concepts: threats, defenses, and how to think like both attacker and defender.",
+    url: "https://mega.nz/file/PJAXUR5Y#n0iF0UPnbMZ3irbgI71R9T-MultWkilu4pgGnwmh5jY",
+  },
+  {
+    title: "Adobe Photoshop — Complete Beginners Course (2025)",
+    description: "From zero to confident in Photoshop. Tools, layers, retouching, and creative workflows.",
+    url: "https://mega.nz/file/TF4X0LxY#KDja6CNh83BbHigHUcntq9CNFnv6mvpt7wpophQbvwY",
+  },
+  {
+    title: "Cybersecurity Bootcamp",
+    description: "A deeper, structured ride into security: networks, systems, and hands-on practice.",
+    url: "https://mega.nz/file/amoASYoa#PZ6rNE793g_7yYxF9UJmOHywTvQvDs_4_AggyPdsJoM",
+  },
+  {
+    title: "Internet of Things (IoT) — Fundamentals (101 level)",
+    description: "Understand connected devices: sensors, protocols, and the architecture behind IoT.",
+    url: "https://mega.nz/file/uUJlgbJI#ekd8HMY4uuDXk12fI98Fgf523EWzFyiN606flk4vK9w",
+  },
+  {
+    title: "Learn Facebook Ads & Facebook Marketing Strategies",
+    description: "A complete walkthrough of running effective ad campaigns and marketing on Facebook.",
+    url: "https://mega.nz/file/qERTkQbS#_7VGUV5pT5ComQIgB9eUG01WMiN7r1LCF_FLUobgVyc",
+  },
+  {
+    title: "More tools & courses — ZeroLord Library",
+    description: "A bigger catalog if you want to keep exploring beyond this list.",
+    url: "https://www.zerolord.com/browse",
   },
 ];
 
