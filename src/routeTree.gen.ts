@@ -19,6 +19,7 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
+import { Route as SecretCoursesRouteImport } from './routes/secret.courses'
 import { Route as ProjectsEsp32RouteImport } from './routes/projects.esp32'
 import { Route as ProjectsBreraRouteImport } from './routes/projects.brera'
 import { Route as ProjectsBravoRouteImport } from './routes/projects.bravo'
@@ -73,6 +74,11 @@ const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   path: '/projects/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SecretCoursesRoute = SecretCoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
+  getParentRoute: () => SecretRoute,
+} as any)
 const ProjectsEsp32Route = ProjectsEsp32RouteImport.update({
   id: '/projects/esp32',
   path: '/projects/esp32',
@@ -97,11 +103,12 @@ export interface FileRoutesByFullPath {
   '/experience': typeof ExperienceRoute
   '/hobbies': typeof HobbiesRoute
   '/login': typeof LoginRoute
-  '/secret': typeof SecretRoute
+  '/secret': typeof SecretRouteWithChildren
   '/skills': typeof SkillsRoute
   '/projects/bravo': typeof ProjectsBravoRoute
   '/projects/brera': typeof ProjectsBreraRoute
   '/projects/esp32': typeof ProjectsEsp32Route
+  '/secret/courses': typeof SecretCoursesRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -112,11 +119,12 @@ export interface FileRoutesByTo {
   '/experience': typeof ExperienceRoute
   '/hobbies': typeof HobbiesRoute
   '/login': typeof LoginRoute
-  '/secret': typeof SecretRoute
+  '/secret': typeof SecretRouteWithChildren
   '/skills': typeof SkillsRoute
   '/projects/bravo': typeof ProjectsBravoRoute
   '/projects/brera': typeof ProjectsBreraRoute
   '/projects/esp32': typeof ProjectsEsp32Route
+  '/secret/courses': typeof SecretCoursesRoute
   '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
@@ -128,11 +136,12 @@ export interface FileRoutesById {
   '/experience': typeof ExperienceRoute
   '/hobbies': typeof HobbiesRoute
   '/login': typeof LoginRoute
-  '/secret': typeof SecretRoute
+  '/secret': typeof SecretRouteWithChildren
   '/skills': typeof SkillsRoute
   '/projects/bravo': typeof ProjectsBravoRoute
   '/projects/brera': typeof ProjectsBreraRoute
   '/projects/esp32': typeof ProjectsEsp32Route
+  '/secret/courses': typeof SecretCoursesRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
@@ -150,6 +159,7 @@ export interface FileRouteTypes {
     | '/projects/bravo'
     | '/projects/brera'
     | '/projects/esp32'
+    | '/secret/courses'
     | '/projects/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
     | '/projects/bravo'
     | '/projects/brera'
     | '/projects/esp32'
+    | '/secret/courses'
     | '/projects'
   id:
     | '__root__'
@@ -180,6 +191,7 @@ export interface FileRouteTypes {
     | '/projects/bravo'
     | '/projects/brera'
     | '/projects/esp32'
+    | '/secret/courses'
     | '/projects/'
   fileRoutesById: FileRoutesById
 }
@@ -191,7 +203,7 @@ export interface RootRouteChildren {
   ExperienceRoute: typeof ExperienceRoute
   HobbiesRoute: typeof HobbiesRoute
   LoginRoute: typeof LoginRoute
-  SecretRoute: typeof SecretRoute
+  SecretRoute: typeof SecretRouteWithChildren
   SkillsRoute: typeof SkillsRoute
   ProjectsBravoRoute: typeof ProjectsBravoRoute
   ProjectsBreraRoute: typeof ProjectsBreraRoute
@@ -271,6 +283,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/secret/courses': {
+      id: '/secret/courses'
+      path: '/courses'
+      fullPath: '/secret/courses'
+      preLoaderRoute: typeof SecretCoursesRouteImport
+      parentRoute: typeof SecretRoute
+    }
     '/projects/esp32': {
       id: '/projects/esp32'
       path: '/projects/esp32'
@@ -295,6 +314,17 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface SecretRouteChildren {
+  SecretCoursesRoute: typeof SecretCoursesRoute
+}
+
+const SecretRouteChildren: SecretRouteChildren = {
+  SecretCoursesRoute: SecretCoursesRoute,
+}
+
+const SecretRouteWithChildren =
+  SecretRoute._addFileChildren(SecretRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -303,7 +333,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExperienceRoute: ExperienceRoute,
   HobbiesRoute: HobbiesRoute,
   LoginRoute: LoginRoute,
-  SecretRoute: SecretRoute,
+  SecretRoute: SecretRouteWithChildren,
   SkillsRoute: SkillsRoute,
   ProjectsBravoRoute: ProjectsBravoRoute,
   ProjectsBreraRoute: ProjectsBreraRoute,
