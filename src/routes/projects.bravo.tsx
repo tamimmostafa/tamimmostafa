@@ -2,6 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowLeft, Wrench, Zap, Gauge } from "lucide-react";
 import { PageTransition, SectionHeader } from "@/components/PageTransition";
+import bravoDiagram from "@/assets/bravo_diagram.jpg";
+import bravoEngine from "@/assets/bravo_engine.jpg";
+import bravoGauge from "@/assets/bravo_gauge.jpg";
+import bravoTopspeed from "@/assets/bravo_topspeed.jpg";
 
 export const Route = createFileRoute("/projects/bravo")({
   head: () => ({
