@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { ArrowLeft, BookOpen, ExternalLink } from "lucide-react";
+import { ArrowLeft, BookOpen, ExternalLink, Download, ShieldAlert } from "lucide-react";
 import { useAuth } from "@/components/AuthProvider";
 import { PageTransition } from "@/components/PageTransition";
 
