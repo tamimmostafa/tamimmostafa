@@ -55,7 +55,20 @@ function Experience() {
               transition={{ duration: 0.6 }}
               className={`relative grid md:grid-cols-2 gap-8 ${i % 2 === 0 ? "" : "md:[direction:rtl]"}`}
             >
-              <div className="hidden md:block" />
+              <div className="hidden md:flex md:[direction:ltr] items-start justify-center px-4">
+                {it.img && (
+                  <motion.img
+                    src={it.img}
+                    alt={it.alt}
+                    loading="lazy"
+                    initial={{ opacity: 0, rotate: i % 2 === 0 ? -3 : 3 }}
+                    whileInView={{ opacity: 1, rotate: i % 2 === 0 ? -3 : 3 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="max-h-72 w-auto rounded-xl border border-border shadow-2xl object-cover"
+                  />
+                )}
+              </div>
               <div className="md:[direction:ltr] pl-8 md:pl-12 relative">
                 <div className="absolute left-0 md:-left-[9px] top-2 h-4 w-4 rounded-full bg-primary glow-sm ring-4 ring-background" />
                 <div className="font-mono text-xs uppercase tracking-widest text-primary mb-2">{it.y}</div>
