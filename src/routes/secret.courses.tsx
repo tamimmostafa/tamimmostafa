@@ -134,6 +134,58 @@ function SecretCoursesPage() {
             </motion.a>
           ))}
         </div>
+
+        <motion.a
+          href="https://filecr.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="group mt-8 block glass rounded-2xl p-6 border border-accent/40 hover:border-accent/70 transition-all hover:translate-x-1"
+        >
+          <div className="flex items-start gap-4">
+            <Download className="text-accent shrink-0 mt-1" size={22} />
+            <div className="flex-1">
+              <h3 className="text-xl font-display font-semibold text-foreground group-hover:text-accent transition-colors">
+                Free software downloads — FileCR
+              </h3>
+              <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
+                A library of free software you can grab when you need a tool fast.
+              </p>
+            </div>
+            <ExternalLink size={18} className="text-muted-foreground group-hover:text-accent shrink-0 mt-1 transition-colors" />
+          </div>
+        </motion.a>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mt-6 glass rounded-2xl p-6 border border-destructive/40 bg-destructive/5"
+        >
+          <div className="flex items-start gap-4">
+            <ShieldAlert className="text-destructive shrink-0 mt-1" size={22} />
+            <div className="text-sm leading-relaxed text-foreground/90 space-y-2">
+              <p className="font-display font-semibold text-base text-destructive">
+                Stay safe when downloading
+              </p>
+              <p>
+                Do <strong>not</strong> download anything online unless you have checked it for
+                viruses first.
+              </p>
+              <p>
+                Open <strong>Task Manager</strong> and watch for <strong>100% disk usage</strong>{" "}
+                or any weird <code className="font-mono text-xs px-1 py-0.5 rounded bg-muted">.exe</code>{" "}
+                files you don't recognize. Right-click the suspicious process → <em>End task</em>.
+              </p>
+              <p>
+                If it keeps coming back, run a proper antivirus.{" "}
+                <strong>Windows Defender is not recommended.</strong>
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </motion.div>
     </PageTransition>
   );
